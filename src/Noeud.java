@@ -1,4 +1,5 @@
 import java.util.Objects;
+import java.util.Comparator;
 
 /**
  * Cette classe permet de gérer les noeuds des listes chaînées.

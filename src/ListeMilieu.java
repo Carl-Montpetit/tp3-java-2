@@ -6,7 +6,7 @@
  *
  * @param <E> elements de la listeMilieu
  */
-public class ListeMilieu< E extends Comparable< E > > {
+public class ListeMilieu<E extends Comparable<E>> {
 	// TODO -> Il y a beaucoup de commentaires en surplus que je vais effacer plus tard -> aide à comprendre au début
 	/**
 	 * VARIABLES & CONSTANTES
@@ -16,11 +16,13 @@ public class ListeMilieu< E extends Comparable< E > > {
 	/**
 	 * CONTIENT
 	 */
-	// Une liste de valeurs de type E -> Construite avec une liste simplement chaînée
-	public void inferieur() {}
+	// Une liste de valeurs de type E -> Construite avec une liste simplement chaînée initialement créé
+//	public ListeSimplementChainee inferieur( ListeSimplementChainee listeInitiale ) {
+//	}
 
-	// Une liste de valeurs de type E -> Construite avec une liste simplement chaînée
-	public void superieur() {}
+	// Une liste de valeurs de type E -> Construite avec une liste simplement chaînée initialement créé
+//	public ListeSimplementChainee superieur( ListeSimplementChainee listeInitiale ) {
+//	}
 
 	/**
 	 * INVARIANTS (consulter les formules dans l'énoncé au besoin) -> Aide mémoire pour l'instant
@@ -35,7 +37,7 @@ public class ListeMilieu< E extends Comparable< E > > {
 
 	/**
 	 * LES SERVICES (consulter les formules mathématiques dans l'énoncé au besoin)
- 	 */
+	 */
 	/**
 	 * Permet de constuire une liste vide (par défaut) du Type ListeMilieu
 	 */
@@ -51,7 +53,7 @@ public class ListeMilieu< E extends Comparable< E > > {
 	 * rétabir l'invariant.
 	 * <p>
 	 *
- 	 * @return
+	 * @return
 	 */
 	public ListeMilieu<E> diviser() {
 		return null;

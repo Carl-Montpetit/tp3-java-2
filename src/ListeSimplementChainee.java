@@ -2,6 +2,10 @@ import java.util.Objects;
 
 /**
  * Cette classe permet de gérer des liste simplement chaînées.
+ * <p>
+ * La liste chaînée est programmé de sorte qu'elle contient des objets. Or, si on veut travailler directement avec des
+ * valeurs numériques, il va faloir stocker des objects de type Integer ou Double (qui sont aussi des objets).
+ * </p>
  */
 class ListeSimplementChainee {
 	// TODO -> Il y a beaucoup de commentaires en surplus que je vais effacer plus tard -> aide à comprendre au début
@@ -10,7 +14,7 @@ class ListeSimplementChainee {
 	 */
 	// Le noeud du commencement
 	private Noeud debut = null;
-	// Le dernier noeud
+	// Le dernier noeud (tête)
 	private Noeud fin = null;
 	// Le noeud actuel (courant)
 	private Noeud courant = null;
@@ -102,6 +106,44 @@ class ListeSimplementChainee {
 		} else {
 			return courant;
 		}
+	}
+
+	/**
+	 * Permet d'afficher/imprimer la ListeSimplementChainee à la console.
+	 *<p>
+	 * Prend les éléments un à la suite de l'autre et les imprime séquentiellement.
+	 *</p>
+	 * @param liste Une ListeSimplementChainee
+	 */
+	public void imprimerListeChainee( ListeSimplementChainee liste ) {
+		Noeud courant = liste.debut;
+
+		System.out.print( "ListeSimplementChainee: " );
+
+		// Traverse à travers la ListeSimplementChainee
+		while ( courant != null ) {
+			// Imprimer l'élément au noeud courant
+			System.out.print( courant.getValeur() + " " );
+
+			// Va au prochain noeud
+			courant = courant.getSuivant();
+		}
+		System.out.print( "\n\n" );
+	}
+
+	public int nombreElementDansListeChainee( ListeSimplementChainee liste ) {
+		Noeud courant = liste.debut;
+		int compteur = 0;
+
+		// Traverse à travers la ListeSimplementChainee
+		while ( courant != null ) {
+			// Incrémente de 1 le compteur pour chaque élément parcourue dans la liste
+			compteur++;
+
+			// Va au prochain noeud
+			courant = courant.getSuivant();
+		}
+		return compteur;
 	}
 
 	/**
