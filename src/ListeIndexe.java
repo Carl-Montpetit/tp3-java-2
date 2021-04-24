@@ -10,7 +10,7 @@ import java.util.Comparator;
  * @code_permanent CHAL65550003
  */
 /**
- * Cette classe definie une listeIndexe qui est une structure de liste chainee dont le point d'attache est le milieu
+ * Cette classe definie une listeIndexe qui est une structure de liste chaînée dont le point d'attache est le milieu
  * de la liste.
  * <p>
  * Permet de gérer une suite de liste (ListeMilieu). Elle construit une liste chaînée dont les éléments sont des listes
@@ -18,6 +18,12 @@ import java.util.Comparator;
  * @param <E> elements de la listeIndexe
  */
 public class ListeIndexe<E extends Comparable< E > > {
+	// TODO -> Il y a beaucoup de commentaires en surplus que je vais effacer plus tard -> aide à comprendre au début
+	/**
+	 * VARIABLES & CONSTANTES
+	 */
+	// Vide pour l'instant ou à effacer plus tard.
+
 	/**
 	 * CONTIENT
 	 */
@@ -117,7 +123,7 @@ public class ListeIndexe<E extends Comparable< E > > {
 
 	}
 	/**
-	 * METHODES DU GENERATE
+	 * EQUALS & HASHCODE + TOSTRING
 	 */
 	@Override
 	public int hashCode() {

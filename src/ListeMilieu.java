@@ -1,5 +1,3 @@
-import java.util.Comparator;
-
 /**
  * Cette classe définie une listeMilieu qui est une structure (une liste chaînée accédée par le milieu) qui va gérer
  * l'accès à plusieurs listes chaînées (ListeMilieu) à l'aide d'un index.
@@ -9,6 +7,12 @@ import java.util.Comparator;
  * @param <E> elements de la listeMilieu
  */
 public class ListeMilieu< E extends Comparable< E > > {
+	// TODO -> Il y a beaucoup de commentaires en surplus que je vais effacer plus tard -> aide à comprendre au début
+	/**
+	 * VARIABLES & CONSTANTES
+	 */
+	// Vide pour l'instant ou à effacer plus tard.
+
 	/**
 	 * CONTIENT
 	 */
@@ -29,10 +33,9 @@ public class ListeMilieu< E extends Comparable< E > > {
 
 	// 4. La taille de la liste inférieure est égale à la taille de la liste supérieure ou contient une valeur de plus.
 
-	/*
+	/**
 	 * LES SERVICES (consulter les formules mathématiques dans l'énoncé au besoin)
  	 */
-
 	/**
 	 * Permet de constuire une liste vide (par défaut) du Type ListeMilieu
 	 */
@@ -42,7 +45,7 @@ public class ListeMilieu< E extends Comparable< E > > {
 	/**
 	 * Permet de construire une nouvelle ListeMilieu(L*).
 	 * <p>
-	 * Les éléments de la liste supérieure sont déplacés dans la novuelle ListeMilieu.
+	 * Les éléments de la liste supérieure sont déplacés dans la nouvelle ListeMilieu.
 	 * <p>
 	 * Finalement, une partie des éléments de la liste inférieure sont déplacés dans la liste supérieure afin de
 	 * rétabir l'invariant.
@@ -124,8 +127,8 @@ public class ListeMilieu< E extends Comparable< E > > {
 	}
 
 	/**
-	 * METHODES DU GENERATE
- 	 */
+	 * EQUALS & HASHCODE + TOSTRING
+	 */
 	@Override
 	public int hashCode() {
 		return super.hashCode();
