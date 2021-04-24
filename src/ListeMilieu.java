@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 /**
  * Cette classe définie une listeMilieu qui est une structure (une liste chaînée accédée par le milieu) qui va gérer
  * l'accès à plusieurs listes chaînées (ListeMilieu) à l'aide d'un index.
@@ -16,16 +18,32 @@ public class ListeMilieu<E extends Comparable<E>> {
 	/**
 	 * CONTIENT
 	 */
-	// Une liste de valeurs de type E -> Construite avec une liste simplement chaînée initialement créé
-//	public ListeSimplementChainee inferieur( ListeSimplementChainee listeInitiale ) {
+	// TODO -> Ces deux premières méthodes vont servir à créer les deux listes (sup et inf) à partir d'une liste du
+	//  type ListeSimplementChainee.
+	/**
+	 * Permet de construire une liste simplement chaînée de type E à partir d'une liste simplement chaînée
+	 * initialement créé.
+	 *
+	 * @param listeInitiale La liste initiale qu'on veut diviser en deux listes
+	 * @return listeInferieure La liste inférieure
+	 */
+//	public ListeSimplementChainee inferieure( ListeSimplementChainee listeInitiale ) {
+//
 //	}
 
-	// Une liste de valeurs de type E -> Construite avec une liste simplement chaînée initialement créé
-//	public ListeSimplementChainee superieur( ListeSimplementChainee listeInitiale ) {
+	/**
+	 * Permet de construire une liste simplement chaînée de type E à partir d'une liste simplement chaînée
+	 * initialement créé.
+	 *
+	 * @param listeInitiale La liste initiale qu'on veut diviser en deux listes
+	 * @return listeSuperieure La liste supérieure
+	 */
+//	public ListeSimplementChainee superieure( ListeSimplementChainee listeInitiale ) {
 //	}
 
 	/**
 	 * INVARIANTS (consulter les formules dans l'énoncé au besoin) -> Aide mémoire pour l'instant
+	 * TODO -> Ceci est simplement des règles à respecter dans le code
 	 */
 	// 1. Toutes les valeurs V_i de la liste inférieure sont plus petites ou égales aux valeurs de la liste supérieure.
 

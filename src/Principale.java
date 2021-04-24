@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 /**
  * Cette classe permet de lancer/tester le logiciel.
  */
@@ -21,6 +23,12 @@ public class Principale {
 		liste.ajouterElement( 11 );
 		liste.ajouterElement( 16 );
 		liste.ajouterElement( 20 );
+		// TODO -> Ici il nous faudrait une gestion de l'ordre des éléments dans la liste dans l'exemple l'ordre est
+		//  bon mais faut gérer pour les cas désordonnés -> Implémenté par l'interface comparator. J'ai créé une
+		//  classe GestionOrdre pour ca.
+
+		// À suivre...
+
 		System.out.println( liste.toString() + "\n" );
 		// OUTPUT:
 		// ListeSimplementChainee{debut=Noeud{valeur=-8, suivant=Noeud{valeur=-5, suivant=Noeud{valeur=1,
@@ -36,6 +44,10 @@ public class Principale {
 		System.out.println( "Nombre d'éléments = taille de la liste: " + nbrElements + "\n" );
 		// OUTPUT:
 		// Nombre d'éléments = taille de la liste: 8
-		// TODO -> Maintenant faut diviser la liste en deux -> Liste sup et inf -> Utiliser la classe ListeMilieu
+		// TODO -> Maintenant faut diviser la liste en deux -> Liste sup et inf -> Utiliser la classe ListeMilieu ->
+		//  Faire pointer un pointeur sur le milieu (premier élément de la liste inf) -> Va peut-être faloir prendre
+		//  en compte si la taille de la liste est un nombre pair ou impair pour ce pointeur.
+
+		// À suivre...
 	}
 }
