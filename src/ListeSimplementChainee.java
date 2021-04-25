@@ -65,6 +65,25 @@ class ListeSimplementChainee {
 	//Méthode pour enlever le premier élément (début) -> voir labo 7 (File.java)
 
 	/**
+	 * Enlève le premier de la liste et le retourne.
+	 * @return sortie : le premier élément de la liste.
+	 * @throws ListeVide : l'exception s'il y a une liste vide.
+	 */
+	public Noeud enlever() throws ListeVide{
+		Noeud sortie = null;
+		if(!aCourant()){
+			throw new ListeVide("Liste vide.");
+		}
+		if (nombreElementDansListeChainee() == 1){
+			fin =null;
+		}
+		sortie = debut;
+		debut = debut.getSuivant();//pas sure
+
+		return sortie;
+	}
+
+	/**
 	 * Permet de tester si l'élément courant n'est pas null.
 	 */
 	public boolean aCourant() {
@@ -134,8 +153,8 @@ class ListeSimplementChainee {
 		System.out.print( "\n\n" );
 	}
 
-	public int nombreElementDansListeChainee( ListeSimplementChainee liste ) {
-		Noeud courant = liste.debut;
+	public int nombreElementDansListeChainee(  ) {
+		Noeud courant = debut;
 		int compteur = 0;
 
 		// Traverse à travers la ListeSimplementChainee

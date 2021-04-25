@@ -40,7 +40,7 @@ public class Principale {
 		liste.imprimerListeChainee( liste );
 		// OUTPUT:
 		// ListeSimplementChainee: -8 -5 1 4 9 11 16 20
-		nbrElements = liste.nombreElementDansListeChainee( liste );
+		nbrElements = liste.nombreElementDansListeChainee();
 		System.out.println( "Nombre d'éléments = taille de la liste: " + nbrElements + "\n" );
 		// OUTPUT:
 		// Nombre d'éléments = taille de la liste: 8
