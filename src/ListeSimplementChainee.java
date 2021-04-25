@@ -62,6 +62,8 @@ class ListeSimplementChainee {
 		}
 	}
 
+	//Méthode pour enlever le premier élément (début) -> voir labo 7 (File.java)
+
 	/**
 	 * Permet de tester si l'élément courant n'est pas null.
 	 */
