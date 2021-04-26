@@ -69,15 +69,15 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 * @return sortie : le premier élément de la liste.
 	 * @throws ListeVide : l'exception s'il y a une liste vide.
 	 */
-	public Noeud<T> enlever() throws ListeVide{
-		Noeud<T> sortie = null;
+	public T enlever() throws ListeVide{
+		T sortie = null;
 		if(!aCourant()){
 			throw new ListeVide("Liste vide.");
 		}
 		if (nombreElementDansListeChainee() == 1){
 			fin =null;
 		}
-		sortie = debut;
+		sortie = debut.getValeur();
 		debut = debut.getSuivant();//pas sure
 
 		return sortie;

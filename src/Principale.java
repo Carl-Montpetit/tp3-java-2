@@ -1,5 +1,3 @@
-import java.util.Comparator;
-
 /**
  * Cette classe permet de lancer/tester le logiciel.
  */
@@ -9,7 +7,7 @@ public class Principale {
 		/**
 		 * VARIABLES, OBJECTS ET CONSTANTES
 		 */
-		ListeSimplementChainee liste = new ListeSimplementChainee();
+		ListeSimplementChainee<Integer> liste = new ListeSimplementChainee<Integer>();
 		int nbrElements = 0;
 		/**
 		 * DRIVE CODE
@@ -42,6 +40,12 @@ public class Principale {
 		// ListeSimplementChainee: -8 -5 1 4 9 11 16 20
 		nbrElements = liste.nombreElementDansListeChainee();
 		System.out.println( "Nombre d'éléments = taille de la liste: " + nbrElements + "\n" );
+		try {
+			Integer test = liste.enlever();
+		} catch (ListeVide listeVide) {
+			listeVide.printStackTrace();
+		}
+		liste.imprimerListeChainee( liste );
 		// OUTPUT:
 		// Nombre d'éléments = taille de la liste: 8
 		// TODO -> Maintenant faut diviser la liste en deux -> Liste sup et inf -> Utiliser la classe ListeMilieu ->
