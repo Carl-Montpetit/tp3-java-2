@@ -4,15 +4,15 @@ import java.util.Comparator;
 /**
  * Cette classe permet de gérer les noeuds des listes chaînées.
  */
-class Noeud {
+class Noeud <F extends Comparable<F>>{
 	/**
 	 * VARIABLES & CONSTANTES
 	 */
 	// La valeur stocké.
-	private Object valeur;
+	private F valeur;
 
 	// La référence à l'élément suivant de la liste.
-	private Noeud suivant;
+	private Noeud<F> suivant;
 
 	/**
 	 * CONSTRUCTEURS
@@ -20,7 +20,7 @@ class Noeud {
 	/**
 	 * Permet de construire un Noeud initialisé à une certaine valeur (ou objet).
 	 */
-	public Noeud( Object valeur ) {
+	public Noeud( F valeur ) {
 		this.valeur = valeur;
 		suivant = null;
 	}
@@ -33,7 +33,7 @@ class Noeud {
 	 *
 	 * @return valeur (ou objet)
 	 */
-	public Object getValeur() {
+	public F getValeur() {
 		return valeur;
 	}
 
@@ -42,7 +42,7 @@ class Noeud {
 	 *
 	 * @param newValeur -> nouvelle valeur (ou objet) stocké dans le noeud
 	 */
-	public void setValeur( Object newValeur ) {
+	public void setValeur( F newValeur ) {
 		valeur = newValeur;
 	}
 
@@ -51,7 +51,7 @@ class Noeud {
 	 *
 	 * @return valeur (ou objet) du noeud suivant
 	 */
-	public Noeud getSuivant() {
+	public Noeud<F> getSuivant() {
 		return suivant;
 	}
 
@@ -60,7 +60,7 @@ class Noeud {
 	 *
 	 * @param newSuivant La nouvelle valeur du suivant
 	 */
-	public void setSuivant( Noeud newSuivant ) {
+	public void setSuivant( Noeud<F> newSuivant ) {
 		suivant = newSuivant;
 	}
 

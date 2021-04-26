@@ -8,17 +8,17 @@ import java.util.Comparator;
  * valeurs numériques, il va faloir stocker des objects de type Integer ou Double (qui sont aussi des objets).
  * </p>
  */
-class ListeSimplementChainee {
+class ListeSimplementChainee<T extends Comparable<T>> {
 	// TODO -> Il y a beaucoup de commentaires en surplus que je vais effacer plus tard -> aide à comprendre au début
 	/**
 	 * VARIABLES & CONSTANTES
 	 */
 	// Le noeud du commencement
-	private Noeud debut = null;
+	private Noeud<T> debut = null;
 	// Le dernier noeud (tête)
-	private Noeud fin = null;
+	private Noeud<T> fin = null;
 	// Le noeud actuel (courant)
-	private Noeud courant = null;
+	private Noeud<T> courant = null;
 
 	/**
 	 * CONSTRUCTEURS
@@ -32,8 +32,8 @@ class ListeSimplementChainee {
 	/**
 	 * Permet de construire une ListeSimplementChainee initialisée avec une valeur (ou object).
 	 */
-	public ListeSimplementChainee( Object valeur ) {
-		courant = new Noeud( valeur );
+	public ListeSimplementChainee( T valeur ) {
+		courant = new Noeud<T>( valeur );
 		fin = courant;
 		debut = courant;
 	}
@@ -44,10 +44,10 @@ class ListeSimplementChainee {
 	/**
 	 * Permet d'ajouter un élément à la ListeSimplementchainee.
 	 */
-	public void ajouterElement( Object valeur ) {
+	public void ajouterElement( T valeur ) {
 // on crée un nouvel élément de la liste
 // contenant le double <valeur>
-		Noeud nouvelleFin = new Noeud( valeur );
+		Noeud<T> nouvelleFin = new Noeud<>(valeur);
 
 		if ( debut == null ) {
 //      C'est le tout premier élément de la liste
@@ -69,8 +69,8 @@ class ListeSimplementChainee {
 	 * @return sortie : le premier élément de la liste.
 	 * @throws ListeVide : l'exception s'il y a une liste vide.
 	 */
-	public Noeud enlever() throws ListeVide{
-		Noeud sortie = null;
+	public Noeud<T> enlever() throws ListeVide{
+		Noeud<T> sortie = null;
 		if(!aCourant()){
 			throw new ListeVide("Liste vide.");
 		}
@@ -106,7 +106,7 @@ class ListeSimplementChainee {
 	/**
 	 * Permet de retourner le premier élément de la ListeSimplementChainee.
 	 */
-	public Noeud premier() {
+	public Noeud<T> premier() {
 		courant = debut;
 		if ( debut == null ) {
 			return null;
@@ -118,7 +118,7 @@ class ListeSimplementChainee {
 	/**
 	 * Permet de retourner l'élément suivant dans la ListeSimplementChainee.
 	 */
-	public Noeud suivant() {
+	public Noeud<T> suivant() {
 		if ( courant != null ) {
 			courant = courant.getSuivant();
 		}
@@ -137,8 +137,8 @@ class ListeSimplementChainee {
 	 *</p>
 	 * @param liste Une ListeSimplementChainee
 	 */
-	public void imprimerListeChainee( ListeSimplementChainee liste ) {
-		Noeud courant = liste.debut;
+	public void imprimerListeChainee( ListeSimplementChainee<T> liste ) {
+		Noeud<T> courant = liste.debut;
 
 		System.out.print( "ListeSimplementChainee: " );
 
@@ -154,7 +154,7 @@ class ListeSimplementChainee {
 	}
 
 	public int nombreElementDansListeChainee(  ) {
-		Noeud courant = debut;
+		Noeud<T> courant = debut;
 		int compteur = 0;
 
 		// Traverse à travers la ListeSimplementChainee
@@ -171,14 +171,14 @@ class ListeSimplementChainee {
 	/**
 	 * EQUALS & HASHCODE + TOSTRING
 	 */
-	@Override
-	public boolean equals( Object o ) {
-		if ( this == o ) return true;
-		if ( !( o instanceof ListeSimplementChainee ) ) return false;
-		ListeSimplementChainee that = ( ListeSimplementChainee ) o;
-		return Objects.equals( debut,that.debut ) && Objects.equals( fin,that.fin ) && Objects.equals( courant,
-				that.courant );
-	}
+//	@Override
+//	public boolean equals( Object o ) {
+//		if ( this == o ) return true;
+//		if ( !( o instanceof ListeSimplementChainee ) ) return false;
+//		ListeSimplementChainee<T> that = ( ListeSimplementChainee<T> ) o;
+//		return Objects.equals( debut,that.debut ) && Objects.equals( fin,that.fin ) && Objects.equals( courant,
+//				that.courant );
+//	}
 
 	@Override
 	public int hashCode() {
