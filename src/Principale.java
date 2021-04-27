@@ -13,14 +13,14 @@ public class Principale {
 		 * DRIVE CODE
 		 */
 		// Création d'une liste de 8 éléments pour mimic l'exemple du tp dans l'énoncé.
-		liste.ajouterElement( -8 );
-		liste.ajouterElement( -5 );
-		liste.ajouterElement( 1 );
-		liste.ajouterElement( 4 );
-		liste.ajouterElement( 9 );
-		liste.ajouterElement( 11 );
-		liste.ajouterElement( 16 );
-		liste.ajouterElement( 20 );
+		liste.ajouterElementFin( -8 );
+		liste.ajouterElementFin( -5 );
+		liste.ajouterElementFin( 1 );
+		liste.ajouterElementFin( 4 );
+		liste.ajouterElementFin( 9 );
+		liste.ajouterElementFin( 11 );
+		liste.ajouterElementFin( 16 );
+		liste.ajouterElementFin( 20 );
 		// TODO -> Ici il nous faudrait une gestion de l'ordre des éléments dans la liste dans l'exemple l'ordre est
 		//  bon mais faut gérer pour les cas désordonnés -> Implémenté par l'interface comparator. J'ai créé une
 		//  classe GestionOrdre pour ca.
@@ -63,6 +63,62 @@ public class Principale {
 		nbrElements = liste.nombreElementDansListeChainee();
 		System.out.println( "Nombre d'éléments = taille de la liste: " + nbrElements + "\n" );
 
+
+
+
+		ListeSimplementChainee<Integer> liste1 = new ListeSimplementChainee<Integer>();
+		try {
+			liste1.ajouterElementCroissant(3);
+			liste1.imprimerListeChainee(liste1);
+			liste1.ajouterElementCroissant(2);
+			liste1.imprimerListeChainee(liste1);
+			liste1.ajouterElementCroissant(5);
+			liste1.imprimerListeChainee(liste1);
+			liste1.ajouterElementCroissant(4);
+			liste1.imprimerListeChainee(liste1);
+			liste1.ajouterElementCroissant(4);
+			liste1.imprimerListeChainee(liste1);
+		} catch (ListeVide listeVide) {
+			listeVide.printStackTrace();
+		}
+
+		// OUTPUT
+		// ListeSimplementChainee: 3
+		//
+		//ListeSimplementChainee: 2 3
+		//
+		//ListeSimplementChainee: 2 3 5
+		//
+		//ListeSimplementChainee: 2 3 4 5
+		//
+		//ListeSimplementChainee: 2 3 4 5
+
+		ListeSimplementChainee<Integer> liste2 = new ListeSimplementChainee<Integer>();
+		try {
+			liste2.ajouterElementDecroissant(3);
+			liste2.imprimerListeChainee(liste2);
+			liste2.ajouterElementDecroissant(2);
+			liste2.imprimerListeChainee(liste2);
+			liste2.ajouterElementDecroissant(5);
+			liste2.imprimerListeChainee(liste2);
+			liste2.ajouterElementDecroissant(4);
+			liste2.imprimerListeChainee(liste2);
+			liste2.ajouterElementDecroissant(4);
+			liste2.imprimerListeChainee(liste2);
+		} catch (ListeVide listeVide) {
+			listeVide.printStackTrace();
+		}
+
+		// OUTPUT
+		// ListeSimplementChainee: 3
+		//
+		//ListeSimplementChainee: 3 2
+		//
+		//ListeSimplementChainee: 5 3 2
+		//
+		//ListeSimplementChainee: 5 4 3 2
+		//
+		//ListeSimplementChainee: 5 4 3 2
 
 
 		// À suivre...

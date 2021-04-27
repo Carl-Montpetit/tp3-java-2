@@ -14,6 +14,10 @@ public class ListeMilieu<E extends Comparable<E>> {
 	 * VARIABLES & CONSTANTES
 	 */
 	// Vide pour l'instant ou à effacer plus tard.
+	// La liste supérieure
+	private ListeSimplementChainee<E> superieur = new ListeSimplementChainee<>();
+	// La liste inférieure
+	private ListeSimplementChainee<E> inferieur = new ListeSimplementChainee<>();
 
 	/**
 	 * CONTIENT
@@ -99,7 +103,7 @@ public class ListeMilieu<E extends Comparable<E>> {
 	 * @return
 	 */
 	public E milieu() {
-		return null;
+		return inferieur.premier().getValeur();
 	}
 
 	/**
@@ -111,7 +115,7 @@ public class ListeMilieu<E extends Comparable<E>> {
 	 * @return
 	 */
 	public E minima() {
-		return null;
+		return inferieur.dernier().getValeur();
 	}
 
 	/**
@@ -123,7 +127,7 @@ public class ListeMilieu<E extends Comparable<E>> {
 	 * @return
 	 */
 	public E maxima() {
-		return null;
+		return superieur.dernier().getValeur();
 	}
 
 	/**
@@ -143,7 +147,7 @@ public class ListeMilieu<E extends Comparable<E>> {
 	 * @return
 	 */
 	public int taille() {
-		return 0;
+		return superieur.nombreElementDansListeChainee()+inferieur.nombreElementDansListeChainee();
 	}
 
 	/**
