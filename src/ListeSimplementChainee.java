@@ -78,7 +78,8 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 			fin =null;
 		}
 		sortie = debut.getValeur();
-		debut = debut.getSuivant();//pas sure
+		debut = debut.getSuivant();
+		courant = debut;
 
 		return sortie;
 	}

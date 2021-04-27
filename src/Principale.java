@@ -40,17 +40,30 @@ public class Principale {
 		// ListeSimplementChainee: -8 -5 1 4 9 11 16 20
 		nbrElements = liste.nombreElementDansListeChainee();
 		System.out.println( "Nombre d'éléments = taille de la liste: " + nbrElements + "\n" );
+		// OUTPUT:
+		// Nombre d'éléments = taille de la liste: 8
+		// TODO -> Maintenant faut diviser la liste en deux -> Liste sup et inf -> Utiliser la classe ListeMilieu ->
+		//  Faire pointer un pointeur sur le milieu (premier élément de la liste inf) -> Va peut-être faloir prendre
+		//  en compte si la taille de la liste est un nombre pair ou impair pour ce pointeur.
 		try {
 			Integer test = liste.enlever();
 		} catch (ListeVide listeVide) {
 			listeVide.printStackTrace();
 		}
 		liste.imprimerListeChainee( liste );
-		// OUTPUT:
-		// Nombre d'éléments = taille de la liste: 8
-		// TODO -> Maintenant faut diviser la liste en deux -> Liste sup et inf -> Utiliser la classe ListeMilieu ->
-		//  Faire pointer un pointeur sur le milieu (premier élément de la liste inf) -> Va peut-être faloir prendre
-		//  en compte si la taille de la liste est un nombre pair ou impair pour ce pointeur.
+		nbrElements = liste.nombreElementDansListeChainee();
+		System.out.println( "Nombre d'éléments = taille de la liste: " + nbrElements + "\n" );
+
+		try {
+			Integer test = liste.enlever();
+		} catch (ListeVide listeVide) {
+			listeVide.printStackTrace();
+		}
+		liste.imprimerListeChainee( liste );
+		nbrElements = liste.nombreElementDansListeChainee();
+		System.out.println( "Nombre d'éléments = taille de la liste: " + nbrElements + "\n" );
+
+
 
 		// À suivre...
 	}
