@@ -146,8 +146,26 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		}
 	}
 
-	public void suppriemrElement( T valeur ){
-
+	/**
+	 * Supprime la valeur de la liste chaînée si elle est présente.
+	 * @param valeur : La valeur à supprimer.
+	 */
+	public void supprimerElement( T valeur ){
+		T test = null;
+		if(aCourant()){
+			int element = nombreElementDansListeChainee();
+			while(element != 0){
+				try {
+					test = enlever();
+				} catch (ListeVideException e) {
+					e.printStackTrace();
+				}
+				if(valeur.compareTo(test)!=0){
+					ajouterElementFin(test);
+				}
+				element--;
+			}
+		}
 	}
 
 	/**
