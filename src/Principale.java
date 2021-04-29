@@ -159,15 +159,21 @@ public class Principale {
 //		System.out.println(test.milieu());
 //		System.out.println(test.minima());
 
-		test.supprimer(0);
+//		test.supprimer(0);
+//		test.getSuperieur().imprimerListeChainee();
+//		test.getInferieur().imprimerListeChainee();
+//		test.supprimer(-2);
+//		test.getSuperieur().imprimerListeChainee();
+//		test.getInferieur().imprimerListeChainee();
+//		test.supprimer(5);
+//		test.getSuperieur().imprimerListeChainee();
+//		test.getInferieur().imprimerListeChainee();
+
+		ListeMilieu<Integer> test2 = test.diviser();
 		test.getSuperieur().imprimerListeChainee();
 		test.getInferieur().imprimerListeChainee();
-		test.supprimer(-2);
-		test.getSuperieur().imprimerListeChainee();
-		test.getInferieur().imprimerListeChainee();
-		test.supprimer(5);
-		test.getSuperieur().imprimerListeChainee();
-		test.getInferieur().imprimerListeChainee();
+		test2.getSuperieur().imprimerListeChainee();
+		test2.getInferieur().imprimerListeChainee();
 
 		// À suivre...
 	}

@@ -116,7 +116,24 @@ public class ListeMilieu<E extends Comparable<E>> {
 	 * @return
 	 */
 	public ListeMilieu<E> diviser() {
-		return null;
+		ListeMilieu<E> nouveau = new ListeMilieu<>();
+		E element = null;
+		if(superieur.nombreElementDansListeChainee() !=0){
+			int elementPresent = superieur.nombreElementDansListeChainee();
+			while(elementPresent != 0){
+				try {
+					element = superieur.enlever();
+				} catch (ListeVideException e) {
+					e.printStackTrace();
+				}
+				nouveau.inserer(element);
+				elementPresent--;
+			}
+		}
+		inferieur.ajustementListes(superieur);
+
+		setPremiersElements(nouveau);
+		return nouveau;
 	}
 
 	/**
@@ -216,6 +233,21 @@ public class ListeMilieu<E extends Comparable<E>> {
 	 */
 	public int taille() {
 		return superieur.nombreElementDansListeChainee()+inferieur.nombreElementDansListeChainee();
+	}
+
+	public void setPremiersElements(ListeMilieu<E> nouvelle){
+		if(inferieur.nombreElementDansListeChainee() != 0) {
+			setPremierInf(new Noeud<E>(inferieur.premier().getValeur()));
+		}
+		if(superieur.nombreElementDansListeChainee() != 0) {
+			setPremierSup(new Noeud<E>(superieur.premier().getValeur()));
+		}
+		if(nouvelle.inferieur.nombreElementDansListeChainee() != 0) {
+			setPremierInf(new Noeud<E>(nouvelle.inferieur.premier().getValeur()));
+		}
+		if(nouvelle.superieur.nombreElementDansListeChainee() != 0) {
+			setPremierSup(new Noeud<E>(nouvelle.superieur.premier().getValeur()));
+		}
 	}
 
 	/**
