@@ -165,7 +165,13 @@ public class ListeMilieu<E extends Comparable<E>> {
 	 * @return
 	 */
 	public E maxima() {
-		return superieur.dernier().getValeur();
+		E maximum;
+		if(superieur.nombreElementDansListeChainee() == 0){
+			maximum = getPremierInf().getValeur();
+		}else{
+			maximum = superieur.dernier().getValeur();
+		}
+		return maximum;
 	}
 
 	/**

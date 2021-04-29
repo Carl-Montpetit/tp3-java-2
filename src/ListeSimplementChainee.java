@@ -146,6 +146,10 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		}
 	}
 
+	public void suppriemrElement( T valeur ){
+
+	}
+
 	/**
 	 * Permet de tester si l'élément courant n'est pas null.
 	 */
