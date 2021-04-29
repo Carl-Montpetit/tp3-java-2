@@ -168,7 +168,7 @@ public class ListeMilieu<E extends Comparable<E>> {
 	 * @return
 	 */
 	public E milieu() {
-		return getPremierInf().getValeur();
+		return inferieur.premier().getValeur();
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class ListeMilieu<E extends Comparable<E>> {
 	public E maxima() {
 		E maximum;
 		if(superieur.nombreElementDansListeChainee() == 0){
-			maximum = getPremierInf().getValeur();
+			maximum = inferieur.premier().getValeur();
 		}else{
 			maximum = superieur.dernier().getValeur();
 		}
