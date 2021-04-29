@@ -264,21 +264,24 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 
 	public void ajustementListes(ListeSimplementChainee<T> sup){
 		T element = null;
-		if(nombreElementDansListeChainee()+1 == sup.nombreElementDansListeChainee()){
-			try {
-				element = sup.enlever();
-			} catch (ListeVideException e) {
-				e.printStackTrace();
+		while(nombreElementDansListeChainee() != sup.nombreElementDansListeChainee()+1 &&
+				nombreElementDansListeChainee() != sup.nombreElementDansListeChainee()) {
+			if (nombreElementDansListeChainee() + 1 <= sup.nombreElementDansListeChainee()) {
+				try {
+					element = sup.enlever();
+				} catch (ListeVideException e) {
+					e.printStackTrace();
+				}
+				ajouterElementDecroissant(element);
 			}
-			ajouterElementDecroissant(element);
-		}
-		if(nombreElementDansListeChainee() == sup.nombreElementDansListeChainee()+2){
-			try {
-				element = enlever();
-			} catch (ListeVideException e) {
-				e.printStackTrace();
+			if (nombreElementDansListeChainee() >= sup.nombreElementDansListeChainee() + 2) {
+				try {
+					element = enlever();
+				} catch (ListeVideException e) {
+					e.printStackTrace();
+				}
+				sup.ajouterElementCroissant(element);
 			}
-			sup.ajouterElementCroissant(element);
 		}
 	}
 
