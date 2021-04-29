@@ -23,6 +23,7 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	/**
 	 * CONSTRUCTEURS
 	 */
+
 	/**
 	 * Permet de construire une ListeSimplementChainee vide (par défaut).
 	 */
@@ -41,6 +42,7 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	/**
 	 * MÉTHODES
 	 */
+
 	/**
 	 * Permet d'ajouter un élément à la ListeSimplementchainee.
 	 */
@@ -87,7 +89,7 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 * @param valeur : la valeur à insérer dans la liste croissante.
 	 * @throws ListeVideException : l'exception s'il y a une liste vide.
 	 */
-	public void ajouterElementCroissant( T valeur ) throws ListeVideException {
+	public void ajouterElementCroissant( T valeur )  {
 		T test = null;
 		boolean place = false;
 		if(!aCourant() || valeur.compareTo(fin.getValeur())>0){
@@ -95,7 +97,11 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		}else{
 			int element = nombreElementDansListeChainee();
 			while(element!=0){
-				test = enlever();
+				try {
+					test = enlever();
+				} catch (ListeVideException e) {
+					e.printStackTrace();
+				}
 				if(valeur.compareTo(test)<0 && !place){
 					ajouterElementFin(valeur);
 					place = true;
@@ -114,7 +120,7 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 * @param valeur : la valeur à insérer dans la liste décroissante.
 	 * @throws ListeVideException : l'exception s'il y a une liste vide.
 	 */
-	public void ajouterElementDecroissant( T valeur ) throws ListeVideException {
+	public void ajouterElementDecroissant( T valeur )  {
 		T test = null;
 		boolean place = false;
 		if(!aCourant() || valeur.compareTo(fin.getValeur())<0){
@@ -122,7 +128,11 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		}else{
 			int element = nombreElementDansListeChainee();
 			while(element!=0){
-				test = enlever();
+				try {
+					test = enlever();
+				} catch (ListeVideException e) {
+					e.printStackTrace();
+				}
 				if(valeur.compareTo(test)>0 && !place){
 					ajouterElementFin(valeur);
 					place = true;
@@ -194,8 +204,6 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 * Permet d'afficher/imprimer la ListeSimplementChainee à la console.
 	 *<p>
 	 * Prend les éléments un à la suite de l'autre et les imprime séquentiellement.
-	 *</p>
-	 * @param liste Une ListeSimplementChainee
 	 */
 	public void imprimerListeChainee() {
 		Noeud<T> courant = this.debut;
@@ -213,6 +221,10 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		System.out.print( "\n\n" );
 	}
 
+	/**
+	 * Retourne le nombre d'élément dans la liste chaînée.
+	 * @return compteur : le nombre d'élément dans la liste chaînée.
+	 */
 	public int nombreElementDansListeChainee(  ) {
 		Noeud<T> courant = debut;
 		int compteur = 0;

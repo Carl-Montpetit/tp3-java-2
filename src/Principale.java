@@ -67,7 +67,7 @@ public class Principale {
 
 
 		ListeSimplementChainee<Integer> liste1 = new ListeSimplementChainee<Integer>();
-		try {
+
 			liste1.ajouterElementCroissant(3);
 			liste1.imprimerListeChainee();
 			liste1.ajouterElementCroissant(2);
@@ -78,9 +78,7 @@ public class Principale {
 			liste1.imprimerListeChainee();
 			liste1.ajouterElementCroissant(4);
 			liste1.imprimerListeChainee();
-		} catch (ListeVideException listeVide) {
-			listeVide.printStackTrace();
-		}
+
 
 		// OUTPUT
 		// ListeSimplementChainee: 3
@@ -94,7 +92,7 @@ public class Principale {
 		//ListeSimplementChainee: 2 3 4 5
 
 		ListeSimplementChainee<Integer> liste2 = new ListeSimplementChainee<Integer>();
-		try {
+
 			liste2.ajouterElementDecroissant(3);
 			liste2.imprimerListeChainee();
 			liste2.ajouterElementDecroissant(2);
@@ -105,9 +103,7 @@ public class Principale {
 			liste2.imprimerListeChainee();
 			liste2.ajouterElementDecroissant(4);
 			liste2.imprimerListeChainee();
-		} catch (ListeVideException listeVide) {
-			listeVide.printStackTrace();
-		}
+
 
 		// OUTPUT
 		// ListeSimplementChainee: 3
