@@ -103,6 +103,8 @@ public class Principale {
 			liste2.imprimerListeChainee();
 			liste2.ajouterElementDecroissant(4);
 			liste2.imprimerListeChainee();
+			liste2.supprimerElement(3);
+			liste2.imprimerListeChainee();
 
 
 		// OUTPUT
@@ -115,6 +117,12 @@ public class Principale {
 		//ListeSimplementChainee: 5 4 3 2
 		//
 		//ListeSimplementChainee: 5 4 3 2
+		//
+		//ListeSimplementChainee: 5 4 2
+
+		ListeMilieu<Integer> test = new ListeMilieu<>();
+		test.inserer(3);
+		test.getInferieur().imprimerListeChainee();
 
 
 		// À suivre...

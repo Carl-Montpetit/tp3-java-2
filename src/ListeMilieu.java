@@ -130,6 +130,18 @@ public class ListeMilieu<E extends Comparable<E>> {
 	 * @param valeur
 	 */
 	public void inserer( E valeur ) {
+		if(inferieur.nombreElementDansListeChainee() == 0 || valeur.compareTo(getPremierInf().getValeur())<=0){
+			inferieur.ajouterElementDecroissant(valeur);
+		}else{
+			superieur.ajouterElementCroissant(valeur);
+		}
+		// méthode pour ajuster!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//
+		//
+		setPremierInf(new Noeud<E>(inferieur.premier().getValeur()));
+		if(superieur.nombreElementDansListeChainee() != 0) {
+			setPremierSup(new Noeud<E>(superieur.premier().getValeur()));
+		}
 	}
 
 	/**

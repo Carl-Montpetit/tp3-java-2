@@ -18,7 +18,7 @@ import java.util.Comparator;
  *
  * @param <E> elements de la listeIndexe
  */
-public class ListeIndexe<E extends Comparable< E > > {
+public class ListeIndex<E extends Comparable< E > > {
 	// TODO -> Il y a beaucoup de commentaires en surplus que je vais effacer plus tard -> aide à comprendre au début
 	/**
 	 * VARIABLES & CONSTANTES
@@ -48,7 +48,7 @@ public class ListeIndexe<E extends Comparable< E > > {
 	 * Construire une ListeIndex vide.
 	 * </p>
 	 */
-	public ListeIndexe() {
+	public ListeIndex() {
 		super();
 	}
 
