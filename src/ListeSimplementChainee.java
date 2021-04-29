@@ -62,16 +62,15 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		}
 	}
 
-
 	/**
 	 * Enlève le premier de la liste et le retourne.
 	 * @return sortie : le premier élément de la liste.
-	 * @throws ListeVide : l'exception s'il y a une liste vide.
+	 * @throws ListeVideException : l'exception s'il y a une liste vide.
 	 */
-	public T enlever() throws ListeVide{
+	public T enlever() throws ListeVideException{
 		T sortie = null;
 		if(!aCourant()){
-			throw new ListeVide("Liste vide.");
+			throw new ListeVideException("Liste vide.");
 		}
 		if (nombreElementDansListeChainee() == 1){
 			fin =null;
@@ -86,9 +85,9 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	/**
 	 * Ajoute la valeur dans la liste en ordre croissant (Sert à la liste supérieure de ListeMilieu).
 	 * @param valeur : la valeur à insérer dans la liste croissante.
-	 * @throws ListeVide : l'exception s'il y a une liste vide.
+	 * @throws ListeVideException : l'exception s'il y a une liste vide.
 	 */
-	public void ajouterElementCroissant( T valeur ) throws ListeVide {
+	public void ajouterElementCroissant( T valeur ) throws ListeVideException {
 		T test = null;
 		boolean place = false;
 		if(!aCourant() || valeur.compareTo(fin.getValeur())>0){
@@ -113,9 +112,9 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	/**
 	 * Ajoute la valeur dans la liste en ordre décroissant (Sert à la liste inférieur de ListeMilieu).
 	 * @param valeur : la valeur à insérer dans la liste décroissante.
-	 * @throws ListeVide : l'exception s'il y a une liste vide.
+	 * @throws ListeVideException : l'exception s'il y a une liste vide.
 	 */
-	public void ajouterElementDecroissant( T valeur ) throws ListeVide {
+	public void ajouterElementDecroissant( T valeur ) throws ListeVideException {
 		T test = null;
 		boolean place = false;
 		if(!aCourant() || valeur.compareTo(fin.getValeur())<0){
@@ -198,8 +197,8 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 *</p>
 	 * @param liste Une ListeSimplementChainee
 	 */
-	public void imprimerListeChainee( ListeSimplementChainee<T> liste ) {
-		Noeud<T> courant = liste.debut;
+	public void imprimerListeChainee() {
+		Noeud<T> courant = this.debut;
 
 		System.out.print( "ListeSimplementChainee: " );
 
@@ -232,19 +231,6 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	/**
 	 * EQUALS & HASHCODE + TOSTRING
 	 */
-//	@Override
-//	public boolean equals( Object o ) {
-//		if ( this == o ) return true;
-//		if ( !( o instanceof ListeSimplementChainee ) ) return false;
-//		ListeSimplementChainee<T> that = ( ListeSimplementChainee<T> ) o;
-//		return Objects.equals( debut,that.debut ) && Objects.equals( fin,that.fin ) && Objects.equals( courant,
-//				that.courant );
-//	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash( debut,fin,courant );
-	}
 
 	@Override
 	public String toString() {
