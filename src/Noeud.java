@@ -17,6 +17,15 @@ class Noeud <F extends Comparable<F>>{
 	/**
 	 * CONSTRUCTEURS
 	 */
+
+	/**
+	 * Permet de construire un Noeud vide.
+	 */
+	public Noeud() {
+		valeur = null;
+		suivant = null;
+	}
+
 	/**
 	 * Permet de construire un Noeud initialisé à une certaine valeur (ou objet).
 	 */

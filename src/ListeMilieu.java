@@ -17,6 +17,8 @@ public class ListeMilieu<E extends Comparable<E>> {
 	private ListeSimplementChainee<E> superieur = new ListeSimplementChainee<>();
 	// La liste inférieure
 	private ListeSimplementChainee<E> inferieur = new ListeSimplementChainee<>();
+	// Le premier élément de la liste inférieur
+	private Noeud<E> premier = null;
 
 	/**
 	 * CONTIENT
