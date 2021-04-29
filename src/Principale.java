@@ -152,6 +152,23 @@ public class Principale {
 		//
 		//ListeSimplementChainee: -1 -2
 
+//		System.out.println(test.getPremierSup().getValeur());
+//		System.out.println(test.getPremierInf().getValeur());
+//
+//		System.out.println(test.maxima());
+//		System.out.println(test.milieu());
+//		System.out.println(test.minima());
+
+		test.supprimer(0);
+		test.getSuperieur().imprimerListeChainee();
+		test.getInferieur().imprimerListeChainee();
+		test.supprimer(-2);
+		test.getSuperieur().imprimerListeChainee();
+		test.getInferieur().imprimerListeChainee();
+		test.supprimer(5);
+		test.getSuperieur().imprimerListeChainee();
+		test.getInferieur().imprimerListeChainee();
+
 		// À suivre...
 	}
 }

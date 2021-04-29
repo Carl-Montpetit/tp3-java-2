@@ -190,6 +190,20 @@ public class ListeMilieu<E extends Comparable<E>> {
 	 * @param valeur
 	 */
 	public void supprimer( E valeur ) {
+		if(inferieur.nombreElementDansListeChainee() != 0){
+			if(superieur.nombreElementDansListeChainee()==0 || valeur.compareTo(getPremierInf().getValeur())<=0){
+				inferieur.supprimerElement(valeur);
+			}else{
+				superieur.supprimerElement(valeur);
+			}
+			inferieur.ajustementListes(superieur);
+			if(inferieur.nombreElementDansListeChainee() != 0) {
+				setPremierInf(new Noeud<E>(inferieur.premier().getValeur()));
+			}
+			if(superieur.nombreElementDansListeChainee() != 0) {
+				setPremierSup(new Noeud<E>(superieur.premier().getValeur()));
+			}
+		}
 	}
 
 	/**
