@@ -37,6 +37,7 @@ class Noeud <F extends Comparable<F>>{
 	/**
 	 * GETTER(S) & SETTER(S)
 	 */
+
 	/**
 	 * Permet de retourner la valeur (ou objet) stocké dans un noeud.
 	 *

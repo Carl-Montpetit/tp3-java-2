@@ -1,5 +1,3 @@
-import java.util.Comparator;
-
 /**
  * Cette classe définie une listeMilieu qui est une structure (une liste chaînée accédée par le milieu) qui va gérer
  * l'accès à plusieurs listes chaînées (ListeMilieu) à l'aide d'un index.
@@ -18,7 +16,46 @@ public class ListeMilieu<E extends Comparable<E>> {
 	// La liste inférieure
 	private ListeSimplementChainee<E> inferieur = new ListeSimplementChainee<>();
 	// Le premier élément de la liste inférieur
-	private Noeud<E> premier = null;
+	private Noeud<E> premierInf = null;
+	// Le premier élément de la liste supérieur
+	private Noeud<E> premierSup = null;
+
+
+	/**
+	 * GETTER(S) & SETTER(S)
+	 */
+
+	public ListeSimplementChainee<E> getSuperieur() {
+		return superieur;
+	}
+
+	public void setSuperieur(ListeSimplementChainee<E> superieur) {
+		this.superieur = superieur;
+	}
+
+	public ListeSimplementChainee<E> getInferieur() {
+		return inferieur;
+	}
+
+	public void setInferieur(ListeSimplementChainee<E> inferieur) {
+		this.inferieur = inferieur;
+	}
+
+	public Noeud<E> getPremierInf() {
+		return premierInf;
+	}
+
+	public void setPremierInf(Noeud<E> premierInf) {
+		this.premierInf = premierInf;
+	}
+
+	public Noeud<E> getPremierSup() {
+		return premierSup;
+	}
+
+	public void setPremierSup(Noeud<E> premierSup) {
+		this.premierSup = premierSup;
+	}
 
 	/**
 	 * CONTIENT
@@ -104,7 +141,7 @@ public class ListeMilieu<E extends Comparable<E>> {
 	 * @return
 	 */
 	public E milieu() {
-		return inferieur.premier().getValeur();
+		return getPremierInf().getValeur();
 	}
 
 	/**
