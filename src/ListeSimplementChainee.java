@@ -229,7 +229,7 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	}
 
 	/**
-	 * EQUALS & HASHCODE + TOSTRING
+	 * TOSTRING
 	 */
 
 	@Override

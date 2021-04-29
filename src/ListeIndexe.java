@@ -124,17 +124,8 @@ public class ListeIndexe<E extends Comparable< E > > {
 
 	}
 	/**
-	 * EQUALS & HASHCODE + TOSTRING
+	 * TOSTRING
 	 */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
-	}
-
-	@Override
-	public boolean equals( Object obj ) {
-		return super.equals( obj );
-	}
 
 	@Override
 	public String toString() {

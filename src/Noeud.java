@@ -65,20 +65,8 @@ class Noeud <F extends Comparable<F>>{
 	}
 
 	/**
-	 * EQUALS & HASHCODE + TOSTRING
+	 * TOSTRING
 	 */
-	@Override
-	public boolean equals( Object o ) {
-		if ( this == o ) return true;
-		if ( !( o instanceof Noeud ) ) return false;
-		Noeud noeud = ( Noeud ) o;
-		return Objects.equals( getValeur(),noeud.getValeur() ) && Objects.equals( getSuivant(),noeud.getSuivant() );
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash( getValeur(),getSuivant() );
-	}
 
 	@Override
 	public String toString() {

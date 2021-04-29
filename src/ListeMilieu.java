@@ -13,7 +13,6 @@ public class ListeMilieu<E extends Comparable<E>> {
 	/**
 	 * VARIABLES & CONSTANTES
 	 */
-	// Vide pour l'instant ou à effacer plus tard.
 	// La liste supérieure
 	private ListeSimplementChainee<E> superieur = new ListeSimplementChainee<>();
 	// La liste inférieure
@@ -151,17 +150,8 @@ public class ListeMilieu<E extends Comparable<E>> {
 	}
 
 	/**
-	 * EQUALS & HASHCODE + TOSTRING
+	 * TOSTRING
 	 */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
-	}
-
-	@Override
-	public boolean equals( Object obj ) {
-		return super.equals( obj );
-	}
 
 	@Override
 	public String toString() {
