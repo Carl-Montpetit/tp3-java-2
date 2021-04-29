@@ -262,6 +262,26 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		return compteur;
 	}
 
+	public void ajustementListes(ListeSimplementChainee<T> sup){
+		T element = null;
+		if(nombreElementDansListeChainee()+1 == sup.nombreElementDansListeChainee()){
+			try {
+				element = sup.enlever();
+			} catch (ListeVideException e) {
+				e.printStackTrace();
+			}
+			ajouterElementDecroissant(element);
+		}
+		if(nombreElementDansListeChainee() == sup.nombreElementDansListeChainee()+2){
+			try {
+				element = enlever();
+			} catch (ListeVideException e) {
+				e.printStackTrace();
+			}
+			sup.ajouterElementCroissant(element);
+		}
+	}
+
 	/**
 	 * TOSTRING
 	 */

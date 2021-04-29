@@ -123,7 +123,34 @@ public class Principale {
 		ListeMilieu<Integer> test = new ListeMilieu<>();
 		test.inserer(3);
 		test.getInferieur().imprimerListeChainee();
+		test.inserer(5);
+		test.getSuperieur().imprimerListeChainee();
+		test.getInferieur().imprimerListeChainee();
+		test.inserer(-1);
+		test.getSuperieur().imprimerListeChainee();
+		test.getInferieur().imprimerListeChainee();
+		test.inserer(-2);
+		test.getSuperieur().imprimerListeChainee();
+		test.getInferieur().imprimerListeChainee();
 
+		//OUTPUT
+		//1)
+		//ListeSimplementChainee: 3 -> inf
+		//
+		//2)
+		//ListeSimplementChainee: 5 -> sup
+		//
+		//ListeSimplementChainee: 3 -> inf
+		//
+		//3)
+		//ListeSimplementChainee: 5
+		//
+		//ListeSimplementChainee: 3 -1
+		//
+		//4)
+		//ListeSimplementChainee: 3 5
+		//
+		//ListeSimplementChainee: -1 -2
 
 		// À suivre...
 	}

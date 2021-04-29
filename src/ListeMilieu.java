@@ -135,9 +135,7 @@ public class ListeMilieu<E extends Comparable<E>> {
 		}else{
 			superieur.ajouterElementCroissant(valeur);
 		}
-		// méthode pour ajuster!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		//
-		//
+		inferieur.ajustementListes(superieur);
 		setPremierInf(new Noeud<E>(inferieur.premier().getValeur()));
 		if(superieur.nombreElementDansListeChainee() != 0) {
 			setPremierSup(new Noeud<E>(superieur.premier().getValeur()));
