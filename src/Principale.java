@@ -250,7 +250,7 @@ public class Principale {
 		Noeud{valeur=1, suivant=null}}, suivant=null}}
 		=================================================
 		 */
-		System.out.println( test.estPresent( -8 ));
+		System.out.println( test.estPresent( 4 ));
 
 	}
 }

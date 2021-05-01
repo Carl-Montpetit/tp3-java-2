@@ -75,9 +75,9 @@ public class ListeIndex<E extends Comparable<E>> {
 				compteur++;
 			}
 			liste = get( indice );
-
+			estDedans = liste.estPresent(valeur);
 		}
-		return false;
+		return estDedans;
 	}
 
 	/**
