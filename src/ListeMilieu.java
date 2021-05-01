@@ -6,7 +6,7 @@
  *
  * @param <E> elements d'une listeMilieu
  */
-public class ListeMilieu<E extends Comparable<E>> {
+public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMilieu<E>> {
 	/*
 	 VARIABLES & CONSTANTES
 	 */
@@ -213,5 +213,21 @@ public class ListeMilieu<E extends Comparable<E>> {
 	@Override
 	public String toString() {
 		return super.toString();
+	}
+
+
+
+	@Override
+	public int compareTo( ListeMilieu<E> o ) {
+		int x;
+
+		if ( minima().compareTo( o.minima()) == 0 ) {
+			x = 0;
+		} else if ( minima().compareTo( o.minima()) > 0 ) {
+			x = 1;
+		} else {
+			x = -1;
+		}
+		return x;
 	}
 }

@@ -200,16 +200,16 @@ public class Principale {
 //		test.getSuperieur().imprimerListeChainee();
 //		test.getInferieur().imprimerListeChainee();
 
-		ListeMilieu<Integer> test2 = test.diviser();
+		ListeMilieu<Integer> testDiviser = test.diviser();
 		System.out.println("ORIGINALE -> SUP : ");
 		test.getSuperieur().imprimerListeChainee();
 		System.out.println("ORIGINALE -> INF : ");
 		test.getInferieur().imprimerListeChainee();
 		System.out.println("=================================================");
 		System.out.println("RESULTAT -> SUP : ");
-		test2.getSuperieur().imprimerListeChainee();
+		testDiviser.getSuperieur().imprimerListeChainee();
 		System.out.println("RESULTAT -> INF : ");
-		test2.getInferieur().imprimerListeChainee();
+		testDiviser.getInferieur().imprimerListeChainee();
 		System.out.println("=================================================");
 
 		// OUTPUT
@@ -229,5 +229,7 @@ public class Principale {
 
 		=================================================
 		 */
+		ListeMilieu<Integer> test2 = new ListeMilieu<>();
+
 	}
 }

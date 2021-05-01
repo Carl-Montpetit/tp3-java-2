@@ -22,18 +22,6 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	public ListeSimplementChainee() {
 	}
 
-	/**
-	 * Construit une liste simplement chaînéee initialisée avec une valeur (ou object). TODO Supprimer ??
-	 * Probablement...
-	 *
-	 * @param valeur La valeur dans la liste construite.
-	 */
-	public ListeSimplementChainee( T valeur ) {
-		courant = new Noeud<T>( valeur );
-		fin = courant;
-		debut = courant;
-	}
-
 	/*
 	 MÉTHODES
 	 */

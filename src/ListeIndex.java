@@ -21,22 +21,21 @@ public class ListeIndex<E extends Comparable<E>> {
 	/*
 	 VARIABLES & CONSTANTES
 	 */
+	// Élement (listeMilieu) d'une ListeIndex
+	private Noeud<ListeMilieu<E>> debutIndex = null;
+	private Noeud<ListeMilieu<E>> finIndex = null;
 
 	/*
 	 CONSTRUCTEUR(S)
 	 */
 	/**
-	 * Construit une liste de ListeMilieu.
-	 */
-	public void Index() {
-	}
-
-	/**
 	 * Construit une ListeIndex initialement vide (par défaut).
 	 */
 	public ListeIndex() {
-		super();
 	}
+	/*
+	 GETTER(S) & SETTER(S)
+	 */
 
 	/*
 	  INVARIANTS (consulter les formules dans l'énoncé au besoin) -> Aide mémoire pour l'instant
@@ -65,7 +64,16 @@ public class ListeIndex<E extends Comparable<E>> {
 	 * @return taille La somme des tailles des ListeMilieu(s) dans l'index.
 	 */
 	public int taille() {
-		return 0;
+		Noeud<ListeMilieu<E>> courant = debutIndex;
+		int compteur = 0;
+
+		// Traverse à travers la liste index
+		while ( courant != null ) {
+			compteur = compteur + courant.getValeur().taille();
+			// Va au prochain noeud
+			courant = courant.getSuivant();
+		}
+		return compteur;
 	}
 
 	/**
@@ -74,7 +82,18 @@ public class ListeIndex<E extends Comparable<E>> {
 	 * @return nombre Le nombre de ListeMilieu(s) dans l'index.
 	 */
 	public int nbrListe() {
-		return 0;
+		Noeud<ListeMilieu<E>> courant = debutIndex;
+		int compteur = 0;
+
+		// Traverse à travers la liste index
+		while ( courant != null ) {
+			// Incrémente de 1 le compteur pour chaque élément parcourue dans la liste
+			compteur++;
+
+			// Va au prochain noeud
+			courant = courant.getSuivant();
+		}
+		return compteur;
 	}
 
 	/**
@@ -122,6 +141,27 @@ public class ListeIndex<E extends Comparable<E>> {
 
 	}
 
+	/**
+	 * Ajoute une liste milieu dans une liste indexe et vérifie que les listes milieu sont triés selon leurs minima
+	 * et maxima.
+	 */
+	public void ajouteListeMilieuDansIndex( ListeMilieu<E> nouvelleListe ) {
+		// on crée un nouvel élément de la liste
+// contenant le double <valeur>
+		Noeud<ListeIndex<E>> nouvelleFin = new Noeud<>( nouvelleListe );
+
+		if ( debut == null ) {
+//      C'est le tout premier élément de la liste
+//      -> La liste était initialement vide
+			debut = nouvelleFin;
+			fin = nouvelleFin;
+			courant = nouvelleFin;
+		} else {
+//      La liste contenait déjà des éléments initialement
+			fin.setSuivant( nouvelleFin );
+			fin = nouvelleFin;
+		}
+	}
 	/*
 	 TOSTRING
 	 */

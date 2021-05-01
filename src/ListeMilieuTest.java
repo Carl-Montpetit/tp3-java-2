@@ -832,20 +832,20 @@ class ListeMilieuTest {
 	// Test charge
 	// 12.510 secondes chez moi.
 
-	@Test
-	void charge() {
-		final int NOMBRE_CHOIX = 100_000;
-		final int MINIMA = -5_000_000;
-		final int MAXIMA = 5_000_000;
-		final int TAILLE_INTERVALE = MAXIMA - MINIMA;
-
-		ListeMilieu< Integer > a = new ListeMilieu<>();
-
-		Random r = new Random();
-		for( int i = 0; i < NOMBRE_CHOIX; ++ i ) {
-			a.inserer( r.nextInt( TAILLE_INTERVALE ) + MINIMA );
-		}
-
-		assertTrue( a.taille() <= NOMBRE_CHOIX );
-	}
+//	@Test
+//	void charge() {
+//		final int NOMBRE_CHOIX = 100_000;
+//		final int MINIMA = -5_000_000;
+//		final int MAXIMA = 5_000_000;
+//		final int TAILLE_INTERVALE = MAXIMA - MINIMA;
+//
+//		ListeMilieu< Integer > a = new ListeMilieu<>();
+//
+//		Random r = new Random();
+//		for( int i = 0; i < NOMBRE_CHOIX; ++ i ) {
+//			a.inserer( r.nextInt( TAILLE_INTERVALE ) + MINIMA );
+//		}
+//
+//		assertTrue( a.taille() <= NOMBRE_CHOIX );
+//	}
 }
