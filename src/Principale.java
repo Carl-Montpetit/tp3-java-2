@@ -81,51 +81,51 @@ public class Principale {
 
 		ListeMilieu<Integer> test = new ListeMilieu<>();
 		test.inserer( -8 );
-		System.out.println("INF : ");
+		System.out.println( "INF : " );
 		test.getInferieur().imprimerListeChainee();
-		System.out.println("=================================================");
+		System.out.println( "=================================================" );
 		test.inserer( -5 );
-		System.out.println("SUP : ");
+		System.out.println( "SUP : " );
 		test.getSuperieur().imprimerListeChainee();
-		System.out.println("INF : ");
+		System.out.println( "INF : " );
 		test.getInferieur().imprimerListeChainee();
-		System.out.println("=================================================");
+		System.out.println( "=================================================" );
 		test.inserer( 1 );
-		System.out.println("SUP : ");
+		System.out.println( "SUP : " );
 		test.getSuperieur().imprimerListeChainee();
-		System.out.println("INF : ");
+		System.out.println( "INF : " );
 		test.getInferieur().imprimerListeChainee();
-		System.out.println("=================================================");
+		System.out.println( "=================================================" );
 		test.inserer( 4 );
-		System.out.println("SUP : ");
+		System.out.println( "SUP : " );
 		test.getSuperieur().imprimerListeChainee();
-		System.out.println("INF : ");
+		System.out.println( "INF : " );
 		test.getInferieur().imprimerListeChainee();
-		System.out.println("=================================================");
+		System.out.println( "=================================================" );
 		test.inserer( 9 );
-		System.out.println("SUP : ");
+		System.out.println( "SUP : " );
 		test.getSuperieur().imprimerListeChainee();
-		System.out.println("INF : ");
+		System.out.println( "INF : " );
 		test.getInferieur().imprimerListeChainee();
-		System.out.println("=================================================");
+		System.out.println( "=================================================" );
 		test.inserer( 11 );
-		System.out.println("SUP : ");
+		System.out.println( "SUP : " );
 		test.getSuperieur().imprimerListeChainee();
-		System.out.println("INF : ");
+		System.out.println( "INF : " );
 		test.getInferieur().imprimerListeChainee();
-		System.out.println("=================================================");
+		System.out.println( "=================================================" );
 		test.inserer( 16 );
-		System.out.println("SUP : ");
+		System.out.println( "SUP : " );
 		test.getSuperieur().imprimerListeChainee();
-		System.out.println("INF : ");
+		System.out.println( "INF : " );
 		test.getInferieur().imprimerListeChainee();
-		System.out.println("=================================================");
+		System.out.println( "=================================================" );
 		test.inserer( 20 );
-		System.out.println("SUP : ");
+		System.out.println( "SUP : " );
 		test.getSuperieur().imprimerListeChainee();
-		System.out.println("INF : ");
+		System.out.println( "INF : " );
 		test.getInferieur().imprimerListeChainee();
-		System.out.println("=================================================");
+		System.out.println( "=================================================" );
 		//OUTPUT
 		/*
 		INF :
@@ -201,16 +201,16 @@ public class Principale {
 //		test.getInferieur().imprimerListeChainee();
 
 		ListeMilieu<Integer> testDiviser = test.diviser();
-		System.out.println("ORIGINALE -> SUP : ");
+		System.out.println( "ORIGINALE -> SUP : " );
 		test.getSuperieur().imprimerListeChainee();
-		System.out.println("ORIGINALE -> INF : ");
+		System.out.println( "ORIGINALE -> INF : " );
 		test.getInferieur().imprimerListeChainee();
-		System.out.println("=================================================");
-		System.out.println("RESULTAT -> SUP : ");
+		System.out.println( "=================================================" );
+		System.out.println( "RESULTAT -> SUP : " );
 		testDiviser.getSuperieur().imprimerListeChainee();
-		System.out.println("RESULTAT -> INF : ");
+		System.out.println( "RESULTAT -> INF : " );
 		testDiviser.getInferieur().imprimerListeChainee();
-		System.out.println("=================================================");
+		System.out.println( "=================================================" );
 
 		// OUTPUT
 		/*
@@ -229,7 +229,28 @@ public class Principale {
 
 		=================================================
 		 */
-		ListeMilieu<Integer> test2 = new ListeMilieu<>();
+		ListeIndex<Integer> test2 = new ListeIndex<>();
+		test2.ajouteListeMilieuDansIndex( test );
+		System.out.println( test2.toString() );
+		System.out.println( "=================================================" );
+		/*
+		OUTPUT :
+		=================================================
+		ListeIndex{debutIndex=Noeud{valeur=ListeMilieu{superieur=ListeSimplementChainee{debut=
+		Noeud{valeur=1, suivant=Noeud{valeur=4, suivant=null}}, fin=Noeud{valeur=4, suivant=null}, courant=
+		Noeud{valeur=1, suivant=Noeud{valeur=4, suivant=null}}}, inferieur=ListeSimplementChainee{debut=
+		Noeud{valeur=-5, suivant=Noeud{valeur=-8, suivant=null}}, fin=Noeud{valeur=-8, suivant=null}, courant=
+		Noeud{valeur=-5, suivant=Noeud{valeur=-8, suivant=null}}}, premierInf=Noeud{valeur=-5, suivant=null}, premierSup=
+		Noeud{valeur=1, suivant=null}}, suivant=null}, finIndex=Noeud{valeur=
+		ListeMilieu{superieur=ListeSimplementChainee{debut=Noeud{valeur=1, suivant=
+		Noeud{valeur=4, suivant=null}}, fin=Noeud{valeur=4, suivant=null}, courant=Noeud{valeur=1, suivant=
+		Noeud{valeur=4, suivant=null}}}, inferieur=ListeSimplementChainee{debut=Noeud{valeur=-5, suivant=
+		Noeud{valeur=-8, suivant=null}}, fin=Noeud{valeur=-8, suivant=null}, courant=Noeud{valeur=-5, suivant=
+		Noeud{valeur=-8, suivant=null}}}, premierInf=Noeud{valeur=-5, suivant=null}, premierSup=
+		Noeud{valeur=1, suivant=null}}, suivant=null}}
+		=================================================
+		 */
+
 
 	}
 }

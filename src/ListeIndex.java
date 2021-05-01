@@ -147,19 +147,17 @@ public class ListeIndex<E extends Comparable<E>> {
 	 */
 	public void ajouteListeMilieuDansIndex( ListeMilieu<E> nouvelleListe ) {
 		// on crée un nouvel élément de la liste
-// contenant le double <valeur>
-		Noeud<ListeIndex<E>> nouvelleFin = new Noeud<>( nouvelleListe );
+		Noeud<ListeMilieu<E>> nouvelleFin = new Noeud<>( nouvelleListe );
 
-		if ( debut == null ) {
-//      C'est le tout premier élément de la liste
-//      -> La liste était initialement vide
-			debut = nouvelleFin;
-			fin = nouvelleFin;
-			courant = nouvelleFin;
+		if ( debutIndex == null ) {
+		// C'est le tout premier élément de la liste
+		// -> La liste était initialement vide
+			debutIndex = nouvelleFin;
+			finIndex = nouvelleFin;
 		} else {
-//      La liste contenait déjà des éléments initialement
-			fin.setSuivant( nouvelleFin );
-			fin = nouvelleFin;
+		// La liste contenait déjà des éléments initialement
+			finIndex.setSuivant( nouvelleFin );
+			finIndex = nouvelleFin;
 		}
 	}
 	/*
@@ -168,6 +166,9 @@ public class ListeIndex<E extends Comparable<E>> {
 
 	@Override
 	public String toString() {
-		return super.toString();
+		return "ListeIndex{" +
+				"debutIndex=" + debutIndex +
+				", finIndex=" + finIndex +
+				'}';
 	}
 }

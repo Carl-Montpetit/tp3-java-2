@@ -228,12 +228,16 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 	/*
 	 TOSTRING
 	 */
+
 	@Override
 	public String toString() {
-		return super.toString();
+		return "ListeMilieu{" +
+				"superieur=" + superieur +
+				", inferieur=" + inferieur +
+				", premierInf=" + premierInf +
+				", premierSup=" + premierSup +
+				'}';
 	}
-
-
 
 	@Override
 	public int compareTo( ListeMilieu<E> o ) {
