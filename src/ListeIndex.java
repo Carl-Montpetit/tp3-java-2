@@ -97,13 +97,25 @@ public class ListeIndex<E extends Comparable<E>> {
 	}
 
 	/**
-	 * Retourne la ListeMilieu à l'indice i de l'index.
+	 * Retourne la ListeMilieu à l'indice i de l'index. Si i est plus petit que 0 ou plus grand ou égal au nombre de
+	 * listes, retourne une ListeMilieu vide.
 	 *
 	 * @param i La position (indice) d'un élément de l'index.
 	 * @return liste La liste milieu à la position i de l'index.
 	 */
 	public ListeMilieu<E> get( int i ) {
-		return null;
+		int compteur = 0;
+		Noeud<ListeMilieu<E>> noeudListe = debutIndex;
+		ListeMilieu<E> liste = null;
+		while (compteur < i && compteur < nbrListe()){
+			noeudListe = noeudListe.getSuivant();
+			compteur++;
+		}
+		if(compteur < nbrListe()) {
+			liste = noeudListe.getValeur();
+		}
+
+		return liste;
 	}
 
 	/**
