@@ -2,14 +2,14 @@
  * Cette classe permet de gérer les noeuds des listes chaînées.
  */
 class Noeud<F extends Comparable<F>> {
-	/**
-	 * VARIABLES & CONSTANTES
+	/*
+	 VARIABLES & CONSTANTES
 	 */
 	private F valeur;
 	private Noeud<F> suivant;
 
 	/*
-	  CONSTRUCTEURS
+	 CONSTRUCTEURS
 	 */
 	/**
 	 * Construit un noeud initialement vide (par défaut).
@@ -28,7 +28,7 @@ class Noeud<F extends Comparable<F>> {
 	}
 
 	/*
-	  GETTER(S) & SETTER(S)
+	 GETTER(S) & SETTER(S)
 	 */
 
 	/**
@@ -67,8 +67,8 @@ class Noeud<F extends Comparable<F>> {
 		suivant = newSuivant;
 	}
 
-	/**
-	 * TOSTRING
+	/*
+	 TOSTRING
 	 */
 
 	@Override

@@ -7,16 +7,16 @@
  * @param <E> elements d'une listeMilieu
  */
 public class ListeMilieu<E extends Comparable<E>> {
-	/**
-	 * VARIABLES & CONSTANTES
+	/*
+	 VARIABLES & CONSTANTES
 	 */
 	private ListeSimplementChainee<E> superieur = new ListeSimplementChainee<>();
 	private ListeSimplementChainee<E> inferieur = new ListeSimplementChainee<>();
 	private Noeud<E> premierInf = null;
 	private Noeud<E> premierSup = null;
 
-	/**
-	 * GETTER(S) & SETTER(S)
+	/*
+	 GETTER(S) & SETTER(S)
 	 */
 	public ListeSimplementChainee<E> getSuperieur() {
 		return superieur;
@@ -51,7 +51,7 @@ public class ListeMilieu<E extends Comparable<E>> {
 	}
 
 	/*
-	  LES SERVICES
+	 LES SERVICES
 	 */
 	/**
 	 * Constuit une liste milieu initialement vide (par défaut).
@@ -207,8 +207,8 @@ public class ListeMilieu<E extends Comparable<E>> {
 		}
 	}
 
-	/**
-	 * TOSTRING
+	/*
+	 TOSTRING
 	 */
 	@Override
 	public String toString() {
