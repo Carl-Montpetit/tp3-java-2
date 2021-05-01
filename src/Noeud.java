@@ -1,25 +1,18 @@
-import java.util.Objects;
-import java.util.Comparator;
-
 /**
  * Cette classe permet de gérer les noeuds des listes chaînées.
  */
-class Noeud <F extends Comparable<F>>{
+class Noeud<F extends Comparable<F>> {
 	/**
 	 * VARIABLES & CONSTANTES
 	 */
-	// La valeur stocké.
 	private F valeur;
-
-	// La référence à l'élément suivant de la liste.
 	private Noeud<F> suivant;
 
-	/**
-	 * CONSTRUCTEURS
+	/*
+	  CONSTRUCTEURS
 	 */
-
 	/**
-	 * Permet de construire un Noeud vide.
+	 * Construit un noeud initialement vide (par défaut).
 	 */
 	public Noeud() {
 		valeur = null;
@@ -27,48 +20,48 @@ class Noeud <F extends Comparable<F>>{
 	}
 
 	/**
-	 * Permet de construire un Noeud initialisé à une certaine valeur (ou objet).
+	 * Construit un noeud initialisé à une certaine valeur (ou objet).
 	 */
 	public Noeud( F valeur ) {
 		this.valeur = valeur;
 		suivant = null;
 	}
 
-	/**
-	 * GETTER(S) & SETTER(S)
+	/*
+	  GETTER(S) & SETTER(S)
 	 */
 
 	/**
-	 * Permet de retourner la valeur (ou objet) stocké dans un noeud.
+	 * Retourne la valeur (ou objet) stocké dans un noeud.
 	 *
-	 * @return valeur (ou objet)
+	 * @return valeur La valeur dans un noeud.
 	 */
 	public F getValeur() {
 		return valeur;
 	}
 
 	/**
-	 * Permet de modifier la valeur stocké par une autre dans le noeud
+	 * Modifie la valeur stocké dans un noeud.
 	 *
-	 * @param newValeur -> nouvelle valeur (ou objet) stocké dans le noeud
+	 * @param newValeur La nouvelle valeur (ou objet) stocké dans un noeud.
 	 */
 	public void setValeur( F newValeur ) {
 		valeur = newValeur;
 	}
 
 	/**
-	 * Permet de retourner la valeur (ou object) du noeud suivant.
+	 * Retourne la valeur (ou object) du noeud suivant.
 	 *
-	 * @return valeur (ou objet) du noeud suivant
+	 * @return valeur La valeur du noeud suivant.
 	 */
 	public Noeud<F> getSuivant() {
 		return suivant;
 	}
 
 	/**
-	 * Permet de modifier la valeur (ou object) du noeud suivant.
+	 * Modifie la valeur (ou object) du noeud suivant.
 	 *
-	 * @param newSuivant La nouvelle valeur du suivant
+	 * @param newSuivant La nouvelle valeur du noeud suivant.
 	 */
 	public void setSuivant( Noeud<F> newSuivant ) {
 		suivant = newSuivant;

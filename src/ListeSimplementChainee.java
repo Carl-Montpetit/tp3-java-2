@@ -1,6 +1,3 @@
-import java.util.Objects;
-import java.util.Comparator;
-
 /**
  * Cette classe permet de gérer des liste simplement chaînées.
  * <p>
@@ -9,29 +6,27 @@ import java.util.Comparator;
  * </p>
  */
 class ListeSimplementChainee<T extends Comparable<T>> {
-	// TODO -> Il y a beaucoup de commentaires en surplus que je vais effacer plus tard -> aide à comprendre au début
 	/**
 	 * VARIABLES & CONSTANTES
 	 */
-	// Le noeud du commencement
 	private Noeud<T> debut = null;
-	// Le dernier noeud (tête)
 	private Noeud<T> fin = null;
-	// Le noeud actuel (courant)
 	private Noeud<T> courant = null;
 
-	/**
-	 * CONSTRUCTEURS
+	/*
+	  CONSTRUCTEURS
 	 */
-
 	/**
-	 * Permet de construire une ListeSimplementChainee vide (par défaut).
+	 * Construit une liste simplement chaînée initialement vide (par défaut).
 	 */
 	public ListeSimplementChainee() {
 	}
 
 	/**
-	 * Permet de construire une ListeSimplementChainee initialisée avec une valeur (ou object).
+	 * Construit une liste simplement chaînéee initialisée avec une valeur (ou object). TODO Supprimer ??
+	 * Probablement...
+	 *
+	 * @param valeur La valeur dans la liste construite.
 	 */
 	public ListeSimplementChainee( T valeur ) {
 		courant = new Noeud<T>( valeur );
@@ -39,17 +34,19 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		debut = courant;
 	}
 
-	/**
-	 * MÉTHODES
+	/*
+	  MÉTHODES
 	 */
 
 	/**
-	 * Permet d'ajouter un élément à la ListeSimplementchainee.
+	 * Ajoute un élément à une liste simplement chaînée.
+	 *
+	 * @param valeur L'élément ajouté à la listeIndex.
 	 */
-	public void ajouterElementFin(T valeur ) {
+	public void ajouterElementFin( T valeur ) {
 // on crée un nouvel élément de la liste
 // contenant le double <valeur>
-		Noeud<T> nouvelleFin = new Noeud<>(valeur);
+		Noeud<T> nouvelleFin = new Noeud<>( valeur );
 
 		if ( debut == null ) {
 //      C'est le tout premier élément de la liste
@@ -65,17 +62,18 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	}
 
 	/**
-	 * Enlève le premier de la liste et le retourne.
-	 * @return sortie : le premier élément de la liste.
-	 * @throws ListeVideException : l'exception s'il y a une liste vide.
+	 * Enlève le premier de la liste simplement chaînée et le retourne.
+	 *
+	 * @return sortie : le premier élément de la liste simplement chaînée.
+	 * @throws ListeVideException L'exception s'il y a une liste vide.
 	 */
-	public T enlever() throws ListeVideException{
+	public T enlever() throws ListeVideException {
 		T sortie = null;
-		if(!aCourant()){
-			throw new ListeVideException("Liste vide.");
+		if ( !aCourant() ) {
+			throw new ListeVideException( "Liste vide." );
 		}
-		if (nombreElementDansListeChainee() == 1){
-			fin =null;
+		if ( nombreElementDansListeChainee() == 1 ) {
+			fin = null;
 		}
 		sortie = debut.getValeur();
 		debut = debut.getSuivant();
@@ -85,83 +83,88 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	}
 
 	/**
-	 * Ajoute la valeur dans la liste en ordre croissant (Sert à la liste supérieure de ListeMilieu).
-	 * @param valeur : la valeur à insérer dans la liste croissante.
-	 * @throws ListeVideException : l'exception s'il y a une liste vide.
+	 * Ajoute la valeur dans la liste simplement chaînée en ordre croissant (Sert à la liste supérieure de
+	 * ListeMilieu).
+	 *
+	 * @param valeur : la valeur à insérer dans la liste simplement chaînée croissante.
+	 * @throws ListeVideException L'exception s'il y a une liste vide.
 	 */
-	public void ajouterElementCroissant( T valeur )  {
+	public void ajouterElementCroissant( T valeur ) {
 		T test = null;
 		boolean place = false;
-		if(!aCourant() || valeur.compareTo(fin.getValeur())>0){
-			ajouterElementFin(valeur);
-		}else{
+		if ( !aCourant() || valeur.compareTo( fin.getValeur() ) > 0 ) {
+			ajouterElementFin( valeur );
+		} else {
 			int element = nombreElementDansListeChainee();
-			while(element!=0){
+			while ( element != 0 ) {
 				try {
 					test = enlever();
-				} catch (ListeVideException e) {
+				} catch ( ListeVideException e ) {
 					e.printStackTrace();
 				}
-				if(valeur.compareTo(test)<0 && !place){
-					ajouterElementFin(valeur);
+				if ( valeur.compareTo( test ) < 0 && !place ) {
+					ajouterElementFin( valeur );
 					place = true;
 				}
-				if(valeur.compareTo(test)==0 && !place){
+				if ( valeur.compareTo( test ) == 0 && !place ) {
 					place = true;
 				}
-				ajouterElementFin(test);
+				ajouterElementFin( test );
 				element--;
 			}
 		}
 	}
 
 	/**
-	 * Ajoute la valeur dans la liste en ordre décroissant (Sert à la liste inférieur de ListeMilieu).
-	 * @param valeur : la valeur à insérer dans la liste décroissante.
-	 * @throws ListeVideException : l'exception s'il y a une liste vide.
+	 * Ajoute la valeur dans la liste simplement chaînée en ordre décroissant (Sert à la liste inférieur de
+	 * ListeMilieu).
+	 *
+	 * @param valeur : la valeur à insérer dans la liste simplement chaînée décroissante.
+	 * @throws ListeVideException L'exception s'il y a une liste vide.
 	 */
-	public void ajouterElementDecroissant( T valeur )  {
+	public void ajouterElementDecroissant( T valeur ) {
 		T test = null;
 		boolean place = false;
-		if(!aCourant() || valeur.compareTo(fin.getValeur())<0){
-			ajouterElementFin(valeur);
-		}else{
+		if ( !aCourant() || valeur.compareTo( fin.getValeur() ) < 0 ) {
+			ajouterElementFin( valeur );
+		} else {
 			int element = nombreElementDansListeChainee();
-			while(element!=0){
+			while ( element != 0 ) {
 				try {
 					test = enlever();
-				} catch (ListeVideException e) {
+				} catch ( ListeVideException e ) {
 					e.printStackTrace();
 				}
-				if(valeur.compareTo(test)>0 && !place){
-					ajouterElementFin(valeur);
+				if ( valeur.compareTo( test ) > 0 && !place ) {
+					ajouterElementFin( valeur );
 					place = true;
 				}
-				if(valeur.compareTo(test)==0 && !place){
+				if ( valeur.compareTo( test ) == 0 && !place ) {
 					place = true;
 				}
-				ajouterElementFin(test);
+				ajouterElementFin( test );
 				element--;
 			}
 		}
 	}
 
 	/**
-	 * Supprime la valeur de la liste chaînée si elle est présente.
-	 * @param valeur : La valeur à supprimer.
+	 * Supprime la valeur de la liste simplement chaînée si elle est présente.
+	 *
+	 * @param valeur La valeur à supprimer dans une liste simplement chaînée.
 	 */
-	public void supprimerElement( T valeur ){
+	public void supprimerElement( T valeur ) {
 		T test = null;
-		if(aCourant()){
+		if ( aCourant() ) {
 			int element = nombreElementDansListeChainee();
-			while(element != 0){
+			while ( element != 0 ) {
 				try {
 					test = enlever();
-				} catch (ListeVideException e) {
+				} catch ( ListeVideException e ) {
 					e.printStackTrace();
 				}
-				if(valeur.compareTo(test)!=0){
-					ajouterElementFin(test);
+				if ( valeur.compareTo( test ) != 0 ) {
+					ajouterElementFin( test );
 				}
 				element--;
 			}
@@ -169,16 +172,18 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	}
 
 	/**
-	 * Permet de tester si l'élément courant n'est pas null.
+	 * Teste si l'élément courant n'est pas null dans une liste simplement chaînée.
+	 *
+	 * @return true si l'élément courant n'est pas null, false sinon.
 	 */
 	public boolean aCourant() {
 		return ( courant != null );
 	}
 
 	/**
-	 * Permet de retourner la valeur de l'élément courant de la liste.
+	 * Retourne la valeur de l'élément courant d'une liste simplement chaînée.
 	 *
-	 * @return valeur de l'objet
+	 * @return valeur La valeur de l'élément courant dans une liste simplement chaînée.
 	 */
 	public T valeur() {
 		T valeur = null;
@@ -189,11 +194,13 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	}
 
 	/**
-	 * Permet de retourner le premier élément de la ListeSimplementChainee.
+	 * Retourne le premier élément d'une liste simplement chaînée.
+	 *
+	 * @return noeud Le premier élément d'une liste simplement chaînée.
 	 */
 	public Noeud<T> premier() {
 		courant = debut;
-		Noeud<T> noeud= null;
+		Noeud<T> noeud = null;
 		if ( debut != null ) {
 			noeud = debut;
 		}
@@ -201,7 +208,9 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	}
 
 	/**
-	 * Permet de retourner l'élément suivant dans la ListeSimplementChainee.
+	 * Retourne l'élément suivant dans une liste simplement chaînée.
+	 *
+	 * @return noeud L'élément suivant dans une liste simplement chaînée.
 	 */
 	public Noeud<T> suivant() {
 		Noeud<T> noeud = null;
@@ -212,7 +221,9 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	}
 
 	/**
-	 * Permet de retourner le dernier élément dans la ListeSimplementChainee.
+	 * Retourne le dernier élément dans une liste simplement chaînée.
+	 *
+	 * @return noeud Le dernier élément dans une liste simplement chaînée.
 	 */
 	public Noeud<T> dernier() {
 		Noeud<T> noeud = null;
@@ -223,9 +234,9 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	}
 
 	/**
-	 * Permet d'afficher/imprimer la ListeSimplementChainee à la console.
-	 *<p>
-	 * Prend les éléments un à la suite de l'autre et les imprime séquentiellement.
+	 * Affiche/imprime une liste simplement chaînée à la console.
+	 * <p>
+	 * Prend les éléments un à la suite de l'autre dans une liste simplement chaînée et les imprime séquentiellement.
 	 */
 	public void imprimerListeChainee() {
 		Noeud<T> courant = this.debut;
@@ -244,10 +255,11 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	}
 
 	/**
-	 * Retourne le nombre d'élément dans la liste chaînée.
-	 * @return compteur : le nombre d'élément dans la liste chaînée.
+	 * Retourne le nombre d'élément dans une liste simplement chaînée.
+	 *
+	 * @return compteur Le nombre d'élément dans la liste simplement chaînée.
 	 */
-	public int nombreElementDansListeChainee(  ) {
+	public int nombreElementDansListeChainee() {
 		Noeud<T> courant = debut;
 		int compteur = 0;
 
@@ -262,25 +274,30 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		return compteur;
 	}
 
-	public void ajustementListes(ListeSimplementChainee<T> sup){
+	/**
+	 * Ajuste une liste simplement chaînée. TODO -> Peut-être ajouter des détails en description
+	 *
+	 * @param sup Une liste simplement chaînée.
+	 */
+	public void ajustementListes( ListeSimplementChainee<T> sup ) {
 		T element = null;
-		while(nombreElementDansListeChainee() != sup.nombreElementDansListeChainee()+1 &&
-				nombreElementDansListeChainee() != sup.nombreElementDansListeChainee()) {
-			if (nombreElementDansListeChainee() + 1 <= sup.nombreElementDansListeChainee()) {
+		while ( nombreElementDansListeChainee() != sup.nombreElementDansListeChainee() + 1 &&
+				nombreElementDansListeChainee() != sup.nombreElementDansListeChainee() ) {
+			if ( nombreElementDansListeChainee() + 1 <= sup.nombreElementDansListeChainee() ) {
 				try {
 					element = sup.enlever();
-				} catch (ListeVideException e) {
+				} catch ( ListeVideException e ) {
 					e.printStackTrace();
 				}
-				ajouterElementDecroissant(element);
+				ajouterElementDecroissant( element );
 			}
-			if (nombreElementDansListeChainee() >= sup.nombreElementDansListeChainee() + 2) {
+			if ( nombreElementDansListeChainee() >= sup.nombreElementDansListeChainee() + 2 ) {
 				try {
 					element = enlever();
-				} catch (ListeVideException e) {
+				} catch ( ListeVideException e ) {
 					e.printStackTrace();
 				}
-				sup.ajouterElementCroissant(element);
+				sup.ajouterElementCroissant( element );
 			}
 		}
 	}
@@ -288,7 +305,6 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	/**
 	 * TOSTRING
 	 */
-
 	@Override
 	public String toString() {
 		return "ListeSimplementChainee{" +

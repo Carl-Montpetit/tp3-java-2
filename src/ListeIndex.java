@@ -1,5 +1,3 @@
-import java.util.Comparator;
-
 /**
  * Tp3 INF2120
  *
@@ -10,48 +8,46 @@ import java.util.Comparator;
  * @nom Chagnon, Lysanne
  * @code_permanent CHAL65550003
  */
+
 /**
- * Cette classe definie une listeIndexe qui est une structure de liste chaînée dont le point d'attache est le milieu
- * de la liste.
+ * Cette classe definie une liste Indexe qui est une structure de liste chaînée dont le point d'attache est le milieu de
+ * la liste.
  * <p>
  * Permet de gérer une suite de liste (ListeMilieu). Elle construit une liste chaînée dont les éléments sont des listes
  *
- * @param <E> elements de la listeIndexe
+ * @param <E> elements de la listeIndex
  */
-public class ListeIndex<E extends Comparable< E > > {
-	// TODO -> Il y a beaucoup de commentaires en surplus que je vais effacer plus tard -> aide à comprendre au début
-	/**
-	 * VARIABLES & CONSTANTES
+public class ListeIndex<E extends Comparable<E>> {
+	/*
+	  VARIABLES & CONSTANTES
 	 */
-	// Vide pour l'instant ou à effacer plus tard.
+	/**
+	 * CONSTRUCTEUR(S)
+	 */
+	/**
+	 * Construit une liste de ListeMilieu.
+	 */
+	public void Index() {
+	}
 
 	/**
-	 * CONTIENT
+	 * Construit une ListeIndex initialement vide (par défaut).
 	 */
-	// Une liste de ListeMilieu.
-	public void Index() {};
+	public ListeIndex() {
+		super();
+	}
 
-	/**
-	 * INVARIANTS (consulter les formules dans l'énoncé au besoin) -> Aide mémoire pour l'instant
+	/*
+	  INVARIANTS (consulter les formules dans l'énoncé au besoin) -> Aide mémoire pour l'instant
 	 */
 	// 1. Le nombre de valeurs dans chaque ListeMilieu est plus petit ou égal au double du nombre de ListeMilieu dans
 	//      l'index.
 
 	// 2. Les ListeMilieu de l'index sont triés selon leurs minima et maxima.
 
-	/**
-	 * LES SERVICES
+	/*
+	  LES SERVICES
 	 */
-	/**
-	 * Un constructeur par défaut.
-	 * <p>
-	 * Construire une ListeIndex vide.
-	 * </p>
-	 */
-	public ListeIndex() {
-		super();
-	}
-
 	/**
 	 * Vérifie si une des ListeMilieu contient la valeur en argument.
 	 *
@@ -65,7 +61,7 @@ public class ListeIndex<E extends Comparable< E > > {
 	/**
 	 * Retourne la somme de toutes les tailles des ListeMilieu(s) contenue dans l'index.
 	 *
-	 * @return
+	 * @return taille La somme des tailles des ListeMilieu(s) dans l'index.
 	 */
 	public int taille() {
 		return 0;
@@ -74,7 +70,7 @@ public class ListeIndex<E extends Comparable< E > > {
 	/**
 	 * Retourne le nombre de ListeMilieu contenue dans l'index.
 	 *
-	 * @return
+	 * @return nombre Le nombre de ListeMilieu(s) dans l'index.
 	 */
 	public int nbrListe() {
 		return 0;
@@ -83,19 +79,21 @@ public class ListeIndex<E extends Comparable< E > > {
 	/**
 	 * Retourne la ListeMilieu à l'indice i de l'index.
 	 *
-	 * @param i
-	 * @return
+	 * @param i La position (indice) d'un élément de l'index.
+	 * @return liste La liste milieu à la position i de l'index.
 	 */
 	public ListeMilieu<E> get( int i ) {
 		return null;
 	}
 
 	/**
+	 * TODO à ajuster à la fin du tp.
+	 * <p>
 	 * Trouve la ListeMilieu de l'index qui peut contenir cette valeur et ajoute la valeur dans cette liste.
 	 * <p>
 	 * Une ListeMilieu (m_i), qui n'est ***ni la première ni la dernière*** ListeMilieu de l'index, peut contenir une
-	 * valeur lorsque cette valeur est plus grande ou égale à son minima et plus petite que le minima de la
-	 * ListeMilieu suivante.
+	 * valeur lorsque cette valeur est plus grande ou égale à son minima et plus petite que le minima de la ListeMilieu
+	 * suivante.
 	 * <p>
 	 * ***La première ListeMilieu (m_0) peut contenir toutes les valeurs qui sont plus petites que sont maxima.***
 	 * <p>
@@ -105,24 +103,24 @@ public class ListeIndex<E extends Comparable< E > > {
 	 * Si l'ajout de l'élément dans la liste brise l'invariant (1) de la ListeIndex alors il faudra faire appel à la
 	 * méthode deviser de la ListeMilieu qui brise l'invariant. La nouvelle liste est ajoutée dans l'index.
 	 * <p>
-	 * ***S'il n'y a pas de ListeMilieu dans l'index, alors une nouvelle ListeMilieu est ajoutée et l'élément est
-	 * placé dans cette liste.
+	 * ***S'il n'y a pas de ListeMilieu dans l'index, alors une nouvelle ListeMilieu est ajoutée et l'élément est placé
+	 * dans cette liste.
 	 *
 	 * @param valeur
 	 */
 	public void inserer( E valeur ) {
-
 	}
 
 	/**
 	 * Trouve la ListeMilieu pouvant contenir la valeur (voire inserer plus haut -> commentaire dans l'énoncé) et
 	 * supprime la première occurrence de la valeur dans cette liste.
 	 *
-	 * @param valeur
+	 * @param valeur La valeur à supprimer dans la liste indexe.
 	 */
 	public void supprimer( E valeur ) {
 
 	}
+
 	/**
 	 * TOSTRING
 	 */

@@ -4,30 +4,25 @@
 public class Principale {
 	public static void main( String[] args ) {
 		// Code pour lancer/tester le logiciel...
-		/**
-		 * VARIABLES, OBJECTS ET CONSTANTES
+		/*
+		  VARIABLES, OBJECTS ET CONSTANTES
 		 */
-		ListeSimplementChainee<Integer> liste = new ListeSimplementChainee<Integer>();
+		ListeSimplementChainee<Integer> liste = new ListeSimplementChainee<>();
 		int nbrElements = 0;
-		/**
-		 * DRIVE CODE
+		/*
+		  DRIVE CODE
 		 */
 		// Création d'une liste de 8 éléments pour mimic l'exemple du tp dans l'énoncé.
-		liste.ajouterElementFin( -8 );
-		liste.ajouterElementFin( -5 );
-		liste.ajouterElementFin( 1 );
-		liste.ajouterElementFin( 4 );
-		liste.ajouterElementFin( 9 );
-		liste.ajouterElementFin( 11 );
-		liste.ajouterElementFin( 16 );
-		liste.ajouterElementFin( 20 );
-		// TODO -> Ici il nous faudrait une gestion de l'ordre des éléments dans la liste dans l'exemple l'ordre est
-		//  bon mais faut gérer pour les cas désordonnés -> Implémenté par l'interface comparator. J'ai créé une
-		//  classe GestionOrdre pour ca.
-
-		// À suivre...
-
-		System.out.println( liste.toString() + "\n" );
+//		liste.ajouterElementFin( -8 );
+//		liste.ajouterElementFin( -5 );
+//		liste.ajouterElementFin( 1 );
+//		liste.ajouterElementFin( 4 );
+//		liste.ajouterElementFin( 9 );
+//		liste.ajouterElementFin( 11 );
+//		liste.ajouterElementFin( 16 );
+//		liste.ajouterElementFin( 20 );
+//
+//		System.out.println( liste.toString() + "\n" );
 		// OUTPUT:
 		// ListeSimplementChainee{debut=Noeud{valeur=-8, suivant=Noeud{valeur=-5, suivant=Noeud{valeur=1,
 		// suivant=Noeud{valeur=4, suivant=Noeud{valeur=9, suivant=Noeud{valeur=11, suivant=Noeud{valeur=16,
@@ -35,51 +30,44 @@ public class Principale {
 		// courant=Noeud{valeur=-8, suivant=Noeud{valeur=-5, suivant=Noeud{valeur=1, suivant=Noeud{valeur=4,
 		// suivant=Noeud{valeur=9, suivant=Noeud{valeur=11, suivant=Noeud{valeur=16,
 		// suivant=Noeud{valeur=20, suivant=null}}}}}}}}}
-		liste.imprimerListeChainee();
+//		liste.imprimerListeChainee();
 		// OUTPUT:
 		// ListeSimplementChainee: -8 -5 1 4 9 11 16 20
-		nbrElements = liste.nombreElementDansListeChainee();
-		System.out.println( "Nombre d'éléments = taille de la liste: " + nbrElements + "\n" );
+//		nbrElements = liste.nombreElementDansListeChainee();
+//		System.out.println( "Nombre d'éléments = taille de la liste: " + nbrElements + "\n" );
 		// OUTPUT:
 		// Nombre d'éléments = taille de la liste: 8
-		// TODO -> Maintenant faut diviser la liste en deux -> Liste sup et inf -> Utiliser la classe ListeMilieu ->
-		//  Faire pointer un pointeur sur le milieu (premier élément de la liste inf) -> Va peut-être faloir prendre
-		//  en compte si la taille de la liste est un nombre pair ou impair pour ce pointeur.
-		try {
-			Integer test = liste.enlever();
-		} catch (ListeVideException listeVide) {
-			listeVide.printStackTrace();
-		}
-		liste.imprimerListeChainee();
-		nbrElements = liste.nombreElementDansListeChainee();
-		System.out.println( "Nombre d'éléments = taille de la liste: " + nbrElements + "\n" );
 
-		try {
-			Integer test = liste.enlever();
-		} catch (ListeVideException listeVide) {
-			listeVide.printStackTrace();
-		}
-		liste.imprimerListeChainee();
-		nbrElements = liste.nombreElementDansListeChainee();
-		System.out.println( "Nombre d'éléments = taille de la liste: " + nbrElements + "\n" );
+//		try {
+//			Integer test = liste.enlever();
+//		} catch ( ListeVideException listeVide ) {
+//			listeVide.printStackTrace();
+//		}
+//		liste.imprimerListeChainee();
+//		nbrElements = liste.nombreElementDansListeChainee();
+//		System.out.println( "Nombre d'éléments = taille de la liste: " + nbrElements + "\n" );
+//
+//		try {
+//			Integer test = liste.enlever();
+//		} catch ( ListeVideException listeVide ) {
+//			listeVide.printStackTrace();
+//		}
+//		liste.imprimerListeChainee();
+//		nbrElements = liste.nombreElementDansListeChainee();
+//		System.out.println( "Nombre d'éléments = taille de la liste: " + nbrElements + "\n" );
 
+		ListeSimplementChainee<Integer> liste1 = new ListeSimplementChainee<>();
 
-
-
-		ListeSimplementChainee<Integer> liste1 = new ListeSimplementChainee<Integer>();
-
-			liste1.ajouterElementCroissant(3);
-			liste1.imprimerListeChainee();
-			liste1.ajouterElementCroissant(2);
-			liste1.imprimerListeChainee();
-			liste1.ajouterElementCroissant(5);
-			liste1.imprimerListeChainee();
-			liste1.ajouterElementCroissant(4);
-			liste1.imprimerListeChainee();
-			liste1.ajouterElementCroissant(4);
-			liste1.imprimerListeChainee();
-
-
+		liste1.ajouterElementCroissant( 3 );
+		liste1.imprimerListeChainee();
+		liste1.ajouterElementCroissant( 2 );
+		liste1.imprimerListeChainee();
+		liste1.ajouterElementCroissant( 5 );
+		liste1.imprimerListeChainee();
+		liste1.ajouterElementCroissant( 4 );
+		liste1.imprimerListeChainee();
+		liste1.ajouterElementCroissant( 4 );
+		liste1.imprimerListeChainee();
 		// OUTPUT
 		// ListeSimplementChainee: 3
 		//
@@ -91,22 +79,19 @@ public class Principale {
 		//
 		//ListeSimplementChainee: 2 3 4 5
 
-		ListeSimplementChainee<Integer> liste2 = new ListeSimplementChainee<Integer>();
-
-			liste2.ajouterElementDecroissant(3);
-			liste2.imprimerListeChainee();
-			liste2.ajouterElementDecroissant(2);
-			liste2.imprimerListeChainee();
-			liste2.ajouterElementDecroissant(5);
-			liste2.imprimerListeChainee();
-			liste2.ajouterElementDecroissant(4);
-			liste2.imprimerListeChainee();
-			liste2.ajouterElementDecroissant(4);
-			liste2.imprimerListeChainee();
-			liste2.supprimerElement(3);
-			liste2.imprimerListeChainee();
-
-
+		ListeSimplementChainee<Integer> liste2 = new ListeSimplementChainee<>();
+		liste2.ajouterElementDecroissant( 3 );
+		liste2.imprimerListeChainee();
+		liste2.ajouterElementDecroissant( 2 );
+		liste2.imprimerListeChainee();
+		liste2.ajouterElementDecroissant( 5 );
+		liste2.imprimerListeChainee();
+		liste2.ajouterElementDecroissant( 4 );
+		liste2.imprimerListeChainee();
+		liste2.ajouterElementDecroissant( 4 );
+		liste2.imprimerListeChainee();
+		liste2.supprimerElement( 3 );
+		liste2.imprimerListeChainee();
 		// OUTPUT
 		// ListeSimplementChainee: 3
 		//
@@ -121,18 +106,17 @@ public class Principale {
 		//ListeSimplementChainee: 5 4 2
 
 		ListeMilieu<Integer> test = new ListeMilieu<>();
-		test.inserer(3);
+		test.inserer( 3 );
 		test.getInferieur().imprimerListeChainee();
-		test.inserer(5);
+		test.inserer( 5 );
 		test.getSuperieur().imprimerListeChainee();
 		test.getInferieur().imprimerListeChainee();
-		test.inserer(-1);
+		test.inserer( -1 );
 		test.getSuperieur().imprimerListeChainee();
 		test.getInferieur().imprimerListeChainee();
-		test.inserer(-2);
+		test.inserer( -2 );
 		test.getSuperieur().imprimerListeChainee();
 		test.getInferieur().imprimerListeChainee();
-
 		//OUTPUT
 		//1)
 		//ListeSimplementChainee: 3 -> inf
