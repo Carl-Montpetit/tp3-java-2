@@ -6,15 +6,15 @@
  * </p>
  */
 class ListeSimplementChainee<T extends Comparable<T>> {
-	/**
-	 * VARIABLES & CONSTANTES
+	/*
+	 VARIABLES & CONSTANTES
 	 */
 	private Noeud<T> debut = null;
 	private Noeud<T> fin = null;
 	private Noeud<T> courant = null;
 
 	/*
-	  CONSTRUCTEURS
+	 CONSTRUCTEURS
 	 */
 	/**
 	 * Construit une liste simplement chaînée initialement vide (par défaut).
@@ -35,7 +35,7 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	}
 
 	/*
-	  MÉTHODES
+	 MÉTHODES
 	 */
 
 	/**
@@ -302,8 +302,8 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		}
 	}
 
-	/**
-	 * TOSTRING
+	/*
+	 TOSTRING
 	 */
 	@Override
 	public String toString() {

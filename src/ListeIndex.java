@@ -19,10 +19,11 @@
  */
 public class ListeIndex<E extends Comparable<E>> {
 	/*
-	  VARIABLES & CONSTANTES
+	 VARIABLES & CONSTANTES
 	 */
-	/**
-	 * CONSTRUCTEUR(S)
+
+	/*
+	 CONSTRUCTEUR(S)
 	 */
 	/**
 	 * Construit une liste de ListeMilieu.
@@ -46,7 +47,7 @@ public class ListeIndex<E extends Comparable<E>> {
 	// 2. Les ListeMilieu de l'index sont triés selon leurs minima et maxima.
 
 	/*
-	  LES SERVICES
+	 LES SERVICES
 	 */
 	/**
 	 * Vérifie si une des ListeMilieu contient la valeur en argument.
@@ -121,8 +122,8 @@ public class ListeIndex<E extends Comparable<E>> {
 
 	}
 
-	/**
-	 * TOSTRING
+	/*
+	 TOSTRING
 	 */
 
 	@Override
