@@ -53,6 +53,7 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 	/*
 	 LES SERVICES
 	 */
+
 	/**
 	 * Constuit une liste milieu initialement vide (par défaut).
 	 */
@@ -114,7 +115,7 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 		if ( superieur.nombreElementDansListeChainee() != 0 ) {
 			setPremierSup( new Noeud<E>( superieur.premier().getValeur() ) );
 		} else {
-			setPremierSup(null);
+			setPremierSup( null );
 		}
 	}
 
@@ -176,12 +177,12 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 			if ( inferieur.nombreElementDansListeChainee() != 0 ) {
 				setPremierInf( new Noeud<E>( inferieur.premier().getValeur() ) );
 			} else {
-				setPremierInf(null);
+				setPremierInf( null );
 			}
 			if ( superieur.nombreElementDansListeChainee() != 0 ) {
 				setPremierSup( new Noeud<E>( superieur.premier().getValeur() ) );
 			} else {
-				setPremierSup(null);
+				setPremierSup( null );
 			}
 		}
 	}
@@ -200,29 +201,54 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 
 	/**
 	 * Change les valeurs des Noeuds PremierInf et PremierSup pour l'ancienne et la nouvelle ListeMilieu.
+	 *
 	 * @param nouvelle : La nouvelle ListeMilieu.
 	 */
 	public void setPremiersElements( ListeMilieu<E> nouvelle ) {
 		if ( inferieur.nombreElementDansListeChainee() != 0 ) {
 			setPremierInf( new Noeud<E>( inferieur.premier().getValeur() ) );
 		} else {
-			setPremierInf(null);
+			setPremierInf( null );
 		}
 		if ( superieur.nombreElementDansListeChainee() != 0 ) {
 			setPremierSup( new Noeud<E>( superieur.premier().getValeur() ) );
 		} else {
-			setPremierSup(null);
+			setPremierSup( null );
 		}
 		if ( nouvelle.inferieur.nombreElementDansListeChainee() != 0 ) {
 			nouvelle.setPremierInf( new Noeud<E>( nouvelle.inferieur.premier().getValeur() ) );
 		} else {
-			nouvelle.setPremierInf(null);
+			nouvelle.setPremierInf( null );
 		}
 		if ( nouvelle.superieur.nombreElementDansListeChainee() != 0 ) {
 			nouvelle.setPremierSup( new Noeud<E>( nouvelle.superieur.premier().getValeur() ) );
 		} else {
-			nouvelle.setPremierSup(null);
+			nouvelle.setPremierSup( null );
 		}
+	}
+
+	/**
+	 * Retourne vrai si l'élément est présent dans la liste milieu.
+	 *
+	 * @param chose
+	 * @return
+	 */
+	public boolean estPresent( E chose ) {
+		boolean present = false;
+		Noeud<E> courant = null;
+
+		if ( getPremierSup().getValeur().compareTo( chose ) <= 0 ) {
+			courant = superieur.premier();
+		} else {
+			courant = inferieur.premier();
+		}
+		while ( courant != null && !present ) {
+			if ( courant.getValeur().compareTo( chose ) == 0 ) {
+				present = true;
+			}
+			courant = courant.getSuivant();
+		}
+		return present;
 	}
 
 	/*
@@ -239,13 +265,16 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 				'}';
 	}
 
+	/*
+
+	 */
 	@Override
 	public int compareTo( ListeMilieu<E> o ) {
 		int x;
 
-		if ( minima().compareTo( o.minima()) == 0 ) {
+		if ( minima().compareTo( o.minima() ) == 0 ) {
 			x = 0;
-		} else if ( minima().compareTo( o.minima()) > 0 ) {
+		} else if ( minima().compareTo( o.minima() ) > 0 ) {
 			x = 1;
 		} else {
 			x = -1;
