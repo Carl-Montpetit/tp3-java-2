@@ -113,6 +113,8 @@ public class ListeMilieu<E extends Comparable<E>> {
 		setPremierInf( new Noeud<E>( inferieur.premier().getValeur() ) );
 		if ( superieur.nombreElementDansListeChainee() != 0 ) {
 			setPremierSup( new Noeud<E>( superieur.premier().getValeur() ) );
+		} else {
+			setPremierSup(null);
 		}
 	}
 
@@ -125,7 +127,7 @@ public class ListeMilieu<E extends Comparable<E>> {
 	 * @return milieu La valeur milieu de la liste.
 	 */
 	public E milieu() {
-		return inferieur.premier().getValeur();
+		return getPremierInf().getValeur();
 	}
 
 	/**
@@ -151,7 +153,7 @@ public class ListeMilieu<E extends Comparable<E>> {
 	public E maxima() {
 		E maximum;
 		if ( superieur.nombreElementDansListeChainee() == 0 ) {
-			maximum = inferieur.premier().getValeur();
+			maximum = getPremierInf().getValeur();
 		} else {
 			maximum = superieur.dernier().getValeur();
 		}
@@ -173,9 +175,13 @@ public class ListeMilieu<E extends Comparable<E>> {
 			inferieur.ajustementListes( superieur );
 			if ( inferieur.nombreElementDansListeChainee() != 0 ) {
 				setPremierInf( new Noeud<E>( inferieur.premier().getValeur() ) );
+			} else {
+				setPremierInf(null);
 			}
 			if ( superieur.nombreElementDansListeChainee() != 0 ) {
 				setPremierSup( new Noeud<E>( superieur.premier().getValeur() ) );
+			} else {
+				setPremierSup(null);
 			}
 		}
 	}
@@ -192,18 +198,30 @@ public class ListeMilieu<E extends Comparable<E>> {
 		return superieur.nombreElementDansListeChainee() + inferieur.nombreElementDansListeChainee();
 	}
 
+	/**
+	 * Change les valeurs des Noeuds PremierInf et PremierSup pour l'ancienne et la nouvelle ListeMilieu.
+	 * @param nouvelle : La nouvelle ListeMilieu.
+	 */
 	public void setPremiersElements( ListeMilieu<E> nouvelle ) {
 		if ( inferieur.nombreElementDansListeChainee() != 0 ) {
 			setPremierInf( new Noeud<E>( inferieur.premier().getValeur() ) );
+		} else {
+			setPremierInf(null);
 		}
 		if ( superieur.nombreElementDansListeChainee() != 0 ) {
 			setPremierSup( new Noeud<E>( superieur.premier().getValeur() ) );
+		} else {
+			setPremierSup(null);
 		}
 		if ( nouvelle.inferieur.nombreElementDansListeChainee() != 0 ) {
-			setPremierInf( new Noeud<E>( nouvelle.inferieur.premier().getValeur() ) );
+			nouvelle.setPremierInf( new Noeud<E>( nouvelle.inferieur.premier().getValeur() ) );
+		} else {
+			nouvelle.setPremierInf(null);
 		}
 		if ( nouvelle.superieur.nombreElementDansListeChainee() != 0 ) {
-			setPremierSup( new Noeud<E>( nouvelle.superieur.premier().getValeur() ) );
+			nouvelle.setPremierSup( new Noeud<E>( nouvelle.superieur.premier().getValeur() ) );
+		} else {
+			nouvelle.setPremierSup(null);
 		}
 	}
 
