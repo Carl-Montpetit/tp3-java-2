@@ -252,5 +252,32 @@ public class Principale {
 		 */
 		System.out.println( test.estPresent( 4 ));
 
+		ListeSimplementChainee<Integer> allo = new ListeSimplementChainee<>();
+		allo.ajouterElementCroissant(3);
+		allo.ajouterElementCroissant(5);
+		allo.ajouterElementCroissant(0);
+		allo.ajouterElementCroissant(4);
+		allo.imprimerListeChainee();
+
+		ListeSimplementChainee<Integer> allo2 = new ListeSimplementChainee<>();
+		allo2.ajouterElementDecroissant(3);
+		System.out.println("inserer 3");
+		allo2.ajouterElementDecroissant(5);
+		System.out.println("inserer 5");
+		allo2.ajouterElementDecroissant(-4);
+		System.out.println("inserer -4");
+		allo2.ajouterElementDecroissant(4);
+		System.out.println("inserer 4");
+		allo2.ajouterElementDecroissant(4);
+		System.out.println("inserer 2e 4");
+		allo2.imprimerListeChainee();
+
+		/*
+		OUTPUT :
+		ListeSimplementChainee: 0 3 4 5
+
+		ListeSimplementChainee: 5 4 3 -4
+
+		 */
 	}
 }

@@ -22,6 +22,22 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	public ListeSimplementChainee() {
 	}
 
+
+	/*
+     SETTER(S)
+     */
+	public void setDebut(Noeud<T> debut) {
+		this.debut = debut;
+	}
+
+	public void setFin(Noeud<T> fin) {
+		this.fin = fin;
+	}
+
+	public void setCourant(Noeud<T> courant) {
+		this.courant = courant;
+	}
+
 	/*
 	 MÉTHODES
 	 */
@@ -75,30 +91,30 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 * ListeMilieu).
 	 *
 	 * @param valeur : la valeur à insérer dans la liste simplement chaînée croissante.
-	 * @throws ListeVideException L'exception s'il y a une liste vide.
 	 */
 	public void ajouterElementCroissant( T valeur ) {
-		T test = null;
 		boolean place = false;
-		if ( !aCourant() || valeur.compareTo( fin.getValeur() ) > 0 ) {
+		Noeud<T> apres = debut;
+		Noeud<T> precedent = null;
+		Noeud<T> ajout = new Noeud<>( valeur );
+		if( !aCourant() || valeur.compareTo( fin.getValeur() ) > 0 ){
 			ajouterElementFin( valeur );
-		} else {
-			int element = nombreElementDansListeChainee();
-			while ( element != 0 ) {
-				try {
-					test = enlever();
-				} catch ( ListeVideException e ) {
-					e.printStackTrace();
-				}
-				if ( valeur.compareTo( test ) < 0 && !place ) {
-					ajouterElementFin( valeur );
+		}else if ( valeur.compareTo( debut.getValeur() ) < 0 ){
+			ajout.setSuivant( apres );
+			setDebut(ajout);
+		}else{
+			while ( !place ){
+				if( valeur.compareTo( apres.getValeur() ) < 0 ){
+					ajout.setSuivant( apres );
+					assert precedent != null;
+					precedent.setSuivant( ajout );
 					place = true;
 				}
-				if ( valeur.compareTo( test ) == 0 && !place ) {
+				if (valeur.compareTo( apres.getValeur() ) == 0){
 					place = true;
 				}
-				ajouterElementFin( test );
-				element--;
+				precedent = apres;
+				apres = apres.getSuivant();
 			}
 		}
 	}
@@ -108,30 +124,30 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 * ListeMilieu).
 	 *
 	 * @param valeur : la valeur à insérer dans la liste simplement chaînée décroissante.
-	 * @throws ListeVideException L'exception s'il y a une liste vide.
 	 */
 	public void ajouterElementDecroissant( T valeur ) {
-		T test = null;
 		boolean place = false;
-		if ( !aCourant() || valeur.compareTo( fin.getValeur() ) < 0 ) {
+		Noeud<T> apres = debut;
+		Noeud<T> precedent = null;
+		Noeud<T> ajout = new Noeud<>( valeur );
+		if( !aCourant() || valeur.compareTo( fin.getValeur() ) < 0 ){
 			ajouterElementFin( valeur );
-		} else {
-			int element = nombreElementDansListeChainee();
-			while ( element != 0 ) {
-				try {
-					test = enlever();
-				} catch ( ListeVideException e ) {
-					e.printStackTrace();
-				}
-				if ( valeur.compareTo( test ) > 0 && !place ) {
-					ajouterElementFin( valeur );
+		}else if ( valeur.compareTo( debut.getValeur() ) > 0 ){
+			ajout.setSuivant( apres );
+			setDebut(ajout);
+		}else{
+			while ( !place ){
+				if (valeur.compareTo( apres.getValeur() ) == 0){
 					place = true;
 				}
-				if ( valeur.compareTo( test ) == 0 && !place ) {
+				if( valeur.compareTo( apres.getValeur() ) > 0 ){
+					ajout.setSuivant( apres );
+					assert precedent != null;
+					precedent.setSuivant( ajout );
 					place = true;
 				}
-				ajouterElementFin( test );
-				element--;
+				precedent = apres;
+				apres = apres.getSuivant();
 			}
 		}
 	}
