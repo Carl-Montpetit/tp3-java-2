@@ -71,6 +71,7 @@ public class ListeIndex<E extends Comparable<E>> {
 				noeudListe = noeudListe.getSuivant();
 				if ( valeur.compareTo( noeudListe.getValeur().minima() ) < 0 && !trouveIndice ) {
 					indice = compteur;
+					trouveIndice = true;
 				}
 				compteur++;
 			}
