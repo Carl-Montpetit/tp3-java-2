@@ -282,7 +282,7 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	}
 
 	/**
-	 * Ajuste une liste simplement chaînée. TODO -> Peut-être ajouter des détails en description
+	 * Ajuste une liste simplement chaînée.
 	 *
 	 * @param sup Une liste simplement chaînée.
 	 */

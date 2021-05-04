@@ -97,10 +97,8 @@ public class ListeIndex<E extends Comparable<E>> {
 		Noeud<ListeMilieu<E>> courant = debutIndex;
 		int compteur = 0;
 
-		// Traverse à travers la liste index
 		while ( courant != null ) {
 			compteur = compteur + courant.getValeur().taille();
-			// Va au prochain noeud
 			courant = courant.getSuivant();
 		}
 		return compteur;
@@ -115,12 +113,8 @@ public class ListeIndex<E extends Comparable<E>> {
 		Noeud<ListeMilieu<E>> courant = debutIndex;
 		int compteur = 0;
 
-		// Traverse à travers la liste index
 		while ( courant != null ) {
-			// Incrémente de 1 le compteur pour chaque élément parcourue dans la liste
 			compteur++;
-
-			// Va au prochain noeud
 			courant = courant.getSuivant();
 		}
 		return compteur;
@@ -217,16 +211,12 @@ public class ListeIndex<E extends Comparable<E>> {
 	 * maxima.
 	 */
 	public void ajouteListeMilieuDansIndex( ListeMilieu<E> nouvelleListe ) {
-		// on crée un nouvel élément de la liste
 		Noeud<ListeMilieu<E>> nouvelleFin = new Noeud<>( nouvelleListe );
 
 		if ( debutIndex == null ) {
-			// C'est le tout premier élément de la liste
-			// -> La liste était initialement vide
 			debutIndex = nouvelleFin;
 			finIndex = nouvelleFin;
 		} else {
-			// La liste contenait déjà des éléments initialement
 			finIndex.setSuivant( nouvelleFin );
 			finIndex = nouvelleFin;
 		}
@@ -255,6 +245,9 @@ public class ListeIndex<E extends Comparable<E>> {
 		}
 	}
 
+	/**
+	 * Divise une liste milieu si le premier invariant de liste index n'est pas respecté.
+	 */
 	public void ajustementIndex() {
 		Noeud<ListeMilieu<E>> precedant = debutIndex;
 		Noeud<ListeMilieu<E>> suivant = debutIndex.getSuivant();
