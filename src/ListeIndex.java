@@ -172,18 +172,13 @@ public class ListeIndex<E extends Comparable<E>> {
 	 */
 	public void inserer( E valeur ) {
 		if ( this.nbrListe() == 0 ) {
-			ListeMilieu<E> nouvelleListeMilieu = new ListeMilieu<>();
-			nouvelleListeMilieu.inserer( valeur );
-			// Nouveau début d'index (avec une valeur)
-			Noeud<ListeMilieu<E>> nouveauNoeudAvecValeur = new Noeud<>(nouvelleListeMilieu);
-			debutIndex = nouveauNoeudAvecValeur;
-			// Nouvelle fin d'index (null)
-			Noeud<ListeMilieu<E>> nouvelleFin = new Noeud<ListeMilieu<E>>();
-			finIndex = nouvelleFin;
+			ListeMilieu<E> liste = new ListeMilieu<>();
+			liste.inserer( valeur );
+			this.ajouteListeMilieuDansIndex( liste );
 		}
-		if ( this.nbrListe() != 0 && finIndex.getValeur().maxima().compareTo( valeur ) >= 0
-				&& debutIndex.getValeur().minima().compareTo( valeur ) <= 0 ) {
-
+		if ( this.nbrListe() == 1 && this.getDebutIndex().getValeur().maxima().compareTo( valeur ) >= 0
+				&& this.getDebutIndex().getValeur().taille() != 0 ) {
+			this.getDebutIndex().getValeur().inserer( valeur );
 		}
 	}
 
