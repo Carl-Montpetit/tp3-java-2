@@ -180,6 +180,10 @@ public class ListeIndex<E extends Comparable<E>> {
 				&& this.getDebutIndex().getValeur().taille() != 0 ) {
 			this.getDebutIndex().getValeur().inserer( valeur );
 		}
+		// cas pour plus grand que maxima fin
+		if( this.getDebutIndex().getValeur().minima().compareTo( valeur ) < 0 && this.getFinIndex().getValeur().minima().compareTo( valeur ) > 0 ){
+			this.ajouteValeurEntreListesMilieu(valeur);
+		}
 	}
 
 	/**
@@ -190,7 +194,7 @@ public class ListeIndex<E extends Comparable<E>> {
 	 */
 	public void supprimer( E valeur ) {
 		for ( int i = 0; i < this.nbrListe(); i++ ) {
-
+			ajouteValeurEntreListesMilieu(valeur);
 		}
 	}
 
@@ -211,6 +215,23 @@ public class ListeIndex<E extends Comparable<E>> {
 			// La liste contenait déjà des éléments initialement
 			finIndex.setSuivant( nouvelleFin );
 			finIndex = nouvelleFin;
+		}
+	}
+
+	public void ajouteValeurEntreListesMilieu (E valeur){
+		boolean place = false;
+		Noeud<ListeMilieu<E>> apres = debutIndex.getSuivant();
+		Noeud<ListeMilieu<E>> precedent = debutIndex;
+		while(!place){
+			if( valeur.compareTo(precedent.getValeur().minima()) >= 0
+					&& valeur.compareTo(apres.getValeur().minima()) < 0 ){
+				ListeMilieu<E> bonne = precedent.getValeur();
+				bonne.inserer(valeur);
+				precedent.setValeur(bonne);
+				place = true;
+			}
+			precedent = apres;
+			apres = apres.getSuivant();
 		}
 	}
 	/*
