@@ -280,6 +280,12 @@ public class Principale {
 		ListeSimplementChainee: 5 4 3 -4
 
 		 */
-		ListeIndex<ListeMilieu<Integer>> index = new ListeIndex<>();
+		ListeIndex<Integer> index = new ListeIndex<>();
+		index.inserer( 3);
+		index.inserer( 5);
+		index.inserer( 11);
+		index.inserer( -1);
+		index.inserer( 12);
+		System.out.println(index.toString());
 	}
 }

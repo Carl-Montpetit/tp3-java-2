@@ -176,14 +176,19 @@ public class ListeIndex<E extends Comparable<E>> {
 			liste.inserer( valeur );
 			this.ajouteListeMilieuDansIndex( liste );
 		}
-		if ( this.nbrListe() == 1 && this.getDebutIndex().getValeur().maxima().compareTo( valeur ) >= 0
+		if ( this.nbrListe() != 0 && this.get( 0 ).maxima().compareTo( valeur ) >= 0
 				&& this.getDebutIndex().getValeur().taille() != 0 ) {
-			this.getDebutIndex().getValeur().inserer( valeur );
+			this.get( 0 ).inserer( valeur );
 		}
-		// cas pour plus grand que maxima fin
-		if( this.getDebutIndex().getValeur().minima().compareTo( valeur ) < 0 && this.getFinIndex().getValeur().minima().compareTo( valeur ) > 0 ){
-			this.ajouteValeurEntreListesMilieu(valeur);
+		if ( this.nbrListe() != 0 && this.get( this.nbrListe() - 1 ).minima().compareTo( valeur ) <= 0
+				&& this.getDebutIndex().getValeur().taille() != 0 ) {
+			this.get( this.nbrListe() - 1 ).inserer( valeur );
 		}
+		if ( this.getDebutIndex().getValeur().minima().compareTo( valeur ) < 0
+				&& this.getFinIndex().getValeur().minima().compareTo( valeur ) > 0 ) {
+			this.ajouteValeurEntreListesMilieu( valeur );
+		}
+		ajustementIndex();
 	}
 
 	/**
@@ -193,9 +198,7 @@ public class ListeIndex<E extends Comparable<E>> {
 	 * @param valeur La valeur à supprimer dans la liste indexe.
 	 */
 	public void supprimer( E valeur ) {
-		for ( int i = 0; i < this.nbrListe(); i++ ) {
-			ajouteValeurEntreListesMilieu(valeur);
-		}
+
 	}
 
 	/**
@@ -218,22 +221,54 @@ public class ListeIndex<E extends Comparable<E>> {
 		}
 	}
 
-	public void ajouteValeurEntreListesMilieu (E valeur){
+	/**
+	 * Ajoute la valeur dans la bonne liste milieu si la valeur n'est pas plus petite que le minima de debutIndex et
+	 * n'est pas plus grande que le maxima de finIndex.
+	 *
+	 * @param valeur : La valeur à ajouter.
+	 */
+	public void ajouteValeurEntreListesMilieu( E valeur ) {
 		boolean place = false;
 		Noeud<ListeMilieu<E>> apres = debutIndex.getSuivant();
 		Noeud<ListeMilieu<E>> precedent = debutIndex;
-		while(!place){
-			if( valeur.compareTo(precedent.getValeur().minima()) >= 0
-					&& valeur.compareTo(apres.getValeur().minima()) < 0 ){
+		while ( !place ) {
+			if ( valeur.compareTo( precedent.getValeur().minima() ) >= 0
+					&& valeur.compareTo( apres.getValeur().minima() ) < 0 ) {
 				ListeMilieu<E> bonne = precedent.getValeur();
-				bonne.inserer(valeur);
-				precedent.setValeur(bonne);
+				bonne.inserer( valeur );
+				precedent.setValeur( bonne );
 				place = true;
 			}
 			precedent = apres;
 			apres = apres.getSuivant();
 		}
 	}
+
+	public void ajustementIndex() {
+		Noeud<ListeMilieu<E>> precedant = debutIndex;
+		Noeud<ListeMilieu<E>> suivant = debutIndex.getSuivant();
+		Noeud<ListeMilieu<E>> division = new Noeud<>();
+		ListeMilieu<E> listeDivision = null;
+
+		if ( finIndex.getValeur().taille() > ( 2 * this.nbrListe() ) ) {
+			listeDivision = finIndex.getValeur().diviser();
+			division.setValeur( listeDivision );
+			finIndex.setSuivant( division );
+			finIndex = division;
+		} else {
+			while ( suivant != null) {
+				if ( precedant.getValeur().taille() > 2 * this.nbrListe() ) {
+					listeDivision = precedant.getValeur().diviser();
+					division.setValeur( listeDivision );
+					division.setSuivant( suivant );
+					precedant.setSuivant( division );
+				}
+				precedant = suivant;
+				suivant = suivant.getSuivant();
+			}
+		}
+	}
+
 	/*
 	 TOSTRING
 	 */
