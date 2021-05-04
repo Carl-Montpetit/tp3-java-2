@@ -11,6 +11,7 @@ class Noeud<F extends Comparable<F>> {
 	/*
 	 CONSTRUCTEURS
 	 */
+
 	/**
 	 * Construit un noeud initialement vide (par défaut).
 	 */

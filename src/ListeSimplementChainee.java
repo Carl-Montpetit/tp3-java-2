@@ -16,6 +16,7 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	/*
 	 CONSTRUCTEURS
 	 */
+
 	/**
 	 * Construit une liste simplement chaînée initialement vide (par défaut).
 	 */
@@ -26,15 +27,15 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	/*
      SETTER(S)
      */
-	public void setDebut(Noeud<T> debut) {
+	public void setDebut( Noeud<T> debut ) {
 		this.debut = debut;
 	}
 
-	public void setFin(Noeud<T> fin) {
+	public void setFin( Noeud<T> fin ) {
 		this.fin = fin;
 	}
 
-	public void setCourant(Noeud<T> courant) {
+	public void setCourant( Noeud<T> courant ) {
 		this.courant = courant;
 	}
 
@@ -97,20 +98,20 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		Noeud<T> apres = debut;
 		Noeud<T> precedent = null;
 		Noeud<T> ajout = new Noeud<>( valeur );
-		if( !aCourant() || valeur.compareTo( fin.getValeur() ) > 0 ){
+		if ( !aCourant() || valeur.compareTo( fin.getValeur() ) > 0 ) {
 			ajouterElementFin( valeur );
-		}else if ( valeur.compareTo( debut.getValeur() ) < 0 ){
+		} else if ( valeur.compareTo( debut.getValeur() ) < 0 ) {
 			ajout.setSuivant( apres );
-			setDebut(ajout);
-		}else{
-			while ( !place ){
-				if( valeur.compareTo( apres.getValeur() ) < 0 ){
+			setDebut( ajout );
+		} else {
+			while ( !place ) {
+				if ( valeur.compareTo( apres.getValeur() ) < 0 ) {
 					ajout.setSuivant( apres );
 					assert precedent != null;
 					precedent.setSuivant( ajout );
 					place = true;
 				}
-				if (valeur.compareTo( apres.getValeur() ) == 0){
+				if ( valeur.compareTo( apres.getValeur() ) == 0 ) {
 					place = true;
 				}
 				precedent = apres;
@@ -130,17 +131,17 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		Noeud<T> apres = debut;
 		Noeud<T> precedent = null;
 		Noeud<T> ajout = new Noeud<>( valeur );
-		if( !aCourant() || valeur.compareTo( fin.getValeur() ) < 0 ){
+		if ( !aCourant() || valeur.compareTo( fin.getValeur() ) < 0 ) {
 			ajouterElementFin( valeur );
-		}else if ( valeur.compareTo( debut.getValeur() ) > 0 ){
+		} else if ( valeur.compareTo( debut.getValeur() ) > 0 ) {
 			ajout.setSuivant( apres );
-			setDebut(ajout);
-		}else{
-			while ( !place ){
-				if (valeur.compareTo( apres.getValeur() ) == 0){
+			setDebut( ajout );
+		} else {
+			while ( !place ) {
+				if ( valeur.compareTo( apres.getValeur() ) == 0 ) {
 					place = true;
 				}
-				if( valeur.compareTo( apres.getValeur() ) > 0 ){
+				if ( valeur.compareTo( apres.getValeur() ) > 0 ) {
 					ajout.setSuivant( apres );
 					assert precedent != null;
 					precedent.setSuivant( ajout );

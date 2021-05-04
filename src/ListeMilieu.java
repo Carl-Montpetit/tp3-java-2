@@ -1,6 +1,6 @@
 /**
  * Cette classe définie une listeMilieu qui est une structure (une liste chaînée accédée par le milieu) qui va gérer
- * l'accès à plusieurs listes chaînées (ListeMilieu) à l'aide d'un index.
+ * l'accès à plusieurs listes chaînées.
  * <p>
  * Les éléments de cette liste sont maintenus triés.
  *
@@ -266,7 +266,7 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 	}
 
 	/*
-
+	 COMPARETO
 	 */
 	@Override
 	public int compareTo( ListeMilieu<E> o ) {

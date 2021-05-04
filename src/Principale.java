@@ -200,17 +200,17 @@ public class Principale {
 //		test.getSuperieur().imprimerListeChainee();
 //		test.getInferieur().imprimerListeChainee();
 
-		ListeMilieu<Integer> testDiviser = test.diviser();
-		System.out.println( "ORIGINALE -> SUP : " );
-		test.getSuperieur().imprimerListeChainee();
-		System.out.println( "ORIGINALE -> INF : " );
-		test.getInferieur().imprimerListeChainee();
-		System.out.println( "=================================================" );
-		System.out.println( "RESULTAT -> SUP : " );
-		testDiviser.getSuperieur().imprimerListeChainee();
-		System.out.println( "RESULTAT -> INF : " );
-		testDiviser.getInferieur().imprimerListeChainee();
-		System.out.println( "=================================================" );
+//		ListeMilieu<Integer> testDiviser = test.diviser();
+//		System.out.println( "ORIGINALE -> SUP : " );
+//		test.getSuperieur().imprimerListeChainee();
+//		System.out.println( "ORIGINALE -> INF : " );
+//		test.getInferieur().imprimerListeChainee();
+//		System.out.println( "=================================================" );
+//		System.out.println( "RESULTAT -> SUP : " );
+//		testDiviser.getSuperieur().imprimerListeChainee();
+//		System.out.println( "RESULTAT -> INF : " );
+//		testDiviser.getInferieur().imprimerListeChainee();
+//		System.out.println( "=================================================" );
 
 		// OUTPUT
 		/*
@@ -229,10 +229,10 @@ public class Principale {
 
 		=================================================
 		 */
-		ListeIndex<Integer> test2 = new ListeIndex<>();
-		test2.ajouteListeMilieuDansIndex( test );
-		System.out.println( test2.toString() );
-		System.out.println( "=================================================" );
+//		ListeIndex<Integer> test2 = new ListeIndex<>();
+//		test2.ajouteListeMilieuDansIndex( test );
+//		System.out.println( test2.toString() );
+//		System.out.println( "=================================================" );
 		/*
 		OUTPUT :
 		=================================================
@@ -240,7 +240,8 @@ public class Principale {
 		Noeud{valeur=1, suivant=Noeud{valeur=4, suivant=null}}, fin=Noeud{valeur=4, suivant=null}, courant=
 		Noeud{valeur=1, suivant=Noeud{valeur=4, suivant=null}}}, inferieur=ListeSimplementChainee{debut=
 		Noeud{valeur=-5, suivant=Noeud{valeur=-8, suivant=null}}, fin=Noeud{valeur=-8, suivant=null}, courant=
-		Noeud{valeur=-5, suivant=Noeud{valeur=-8, suivant=null}}}, premierInf=Noeud{valeur=-5, suivant=null}, premierSup=
+		Noeud{valeur=-5, suivant=Noeud{valeur=-8, suivant=null}}}, premierInf=Noeud{valeur=-5, suivant=null},
+		premierSup=
 		Noeud{valeur=1, suivant=null}}, suivant=null}, finIndex=Noeud{valeur=
 		ListeMilieu{superieur=ListeSimplementChainee{debut=Noeud{valeur=1, suivant=
 		Noeud{valeur=4, suivant=null}}, fin=Noeud{valeur=4, suivant=null}, courant=Noeud{valeur=1, suivant=
@@ -250,27 +251,27 @@ public class Principale {
 		Noeud{valeur=1, suivant=null}}, suivant=null}}
 		=================================================
 		 */
-		System.out.println( test.estPresent( 4 ));
-
-		ListeSimplementChainee<Integer> allo = new ListeSimplementChainee<>();
-		allo.ajouterElementCroissant(3);
-		allo.ajouterElementCroissant(5);
-		allo.ajouterElementCroissant(0);
-		allo.ajouterElementCroissant(4);
-		allo.imprimerListeChainee();
-
-		ListeSimplementChainee<Integer> allo2 = new ListeSimplementChainee<>();
-		allo2.ajouterElementDecroissant(3);
-		System.out.println("inserer 3");
-		allo2.ajouterElementDecroissant(5);
-		System.out.println("inserer 5");
-		allo2.ajouterElementDecroissant(-4);
-		System.out.println("inserer -4");
-		allo2.ajouterElementDecroissant(4);
-		System.out.println("inserer 4");
-		allo2.ajouterElementDecroissant(4);
-		System.out.println("inserer 2e 4");
-		allo2.imprimerListeChainee();
+//		System.out.println( test.estPresent( 4 ) );
+//
+//		ListeSimplementChainee<Integer> allo = new ListeSimplementChainee<>();
+//		allo.ajouterElementCroissant( 3 );
+//		allo.ajouterElementCroissant( 5 );
+//		allo.ajouterElementCroissant( 0 );
+//		allo.ajouterElementCroissant( 4 );
+//		allo.imprimerListeChainee();
+//
+//		ListeSimplementChainee<Integer> allo2 = new ListeSimplementChainee<>();
+//		allo2.ajouterElementDecroissant( 3 );
+//		System.out.println( "inserer 3" );
+//		allo2.ajouterElementDecroissant( 5 );
+//		System.out.println( "inserer 5" );
+//		allo2.ajouterElementDecroissant( -4 );
+//		System.out.println( "inserer -4" );
+//		allo2.ajouterElementDecroissant( 4 );
+//		System.out.println( "inserer 4" );
+//		allo2.ajouterElementDecroissant( 4 );
+//		System.out.println( "inserer 2e 4" );
+//		allo2.imprimerListeChainee();
 
 		/*
 		OUTPUT :
@@ -279,5 +280,6 @@ public class Principale {
 		ListeSimplementChainee: 5 4 3 -4
 
 		 */
+		ListeIndex<ListeMilieu<Integer>> index = new ListeIndex<>();
 	}
 }

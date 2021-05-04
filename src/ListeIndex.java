@@ -24,7 +24,6 @@ public class ListeIndex<E extends Comparable<E>> {
 	// Élement (listeMilieu) d'une ListeIndex
 	private Noeud<ListeMilieu<E>> debutIndex = null;
 	private Noeud<ListeMilieu<E>> finIndex = null;
-
 	/*
 	 CONSTRUCTEUR(S)
 	 */
@@ -38,13 +37,21 @@ public class ListeIndex<E extends Comparable<E>> {
 	 GETTER(S) & SETTER(S)
 	 */
 
-	/*
-	  INVARIANTS (consulter les formules dans l'énoncé au besoin) -> Aide mémoire pour l'instant
-	 */
-	// 1. Le nombre de valeurs dans chaque ListeMilieu est plus petit ou égal au double du nombre de ListeMilieu dans
-	//      l'index.
+	public Noeud<ListeMilieu<E>> getDebutIndex() {
+		return debutIndex;
+	}
 
-	// 2. Les ListeMilieu de l'index sont triés selon leurs minima et maxima.
+	public void setDebutIndex( Noeud<ListeMilieu<E>> debutIndex ) {
+		this.debutIndex = debutIndex;
+	}
+
+	public Noeud<ListeMilieu<E>> getFinIndex() {
+		return finIndex;
+	}
+
+	public void setFinIndex( Noeud<ListeMilieu<E>> finIndex ) {
+		this.finIndex = finIndex;
+	}
 
 	/*
 	 LES SERVICES
@@ -76,7 +83,7 @@ public class ListeIndex<E extends Comparable<E>> {
 				compteur++;
 			}
 			liste = get( indice );
-			estDedans = liste.estPresent(valeur);
+			estDedans = liste.estPresent( valeur );
 		}
 		return estDedans;
 	}
@@ -130,6 +137,7 @@ public class ListeIndex<E extends Comparable<E>> {
 		int compteur = 0;
 		Noeud<ListeMilieu<E>> noeudListe = debutIndex;
 		ListeMilieu<E> liste = null;
+
 		while ( compteur < i && compteur < nbrListe() ) {
 			noeudListe = noeudListe.getSuivant();
 			compteur++;
@@ -142,15 +150,14 @@ public class ListeIndex<E extends Comparable<E>> {
 	}
 
 	/**
-	 * TODO à ajuster à la fin du tp.
 	 * <p>
 	 * Trouve la ListeMilieu de l'index qui peut contenir cette valeur et ajoute la valeur dans cette liste.
 	 * <p>
-	 * Une ListeMilieu (m_i), qui n'est ***ni la première ni la dernière*** ListeMilieu de l'index, peut contenir une
-	 * valeur lorsque cette valeur est plus grande ou égale à son minima et plus petite que le minima de la ListeMilieu
+	 * Une ListeMilieu (m_i), qui n'est ni la première ni la dernière ListeMilieu de l'index, peut contenir une valeur
+	 * lorsque cette valeur est plus grande ou égale à son minima et plus petite que le minima de la ListeMilieu
 	 * suivante.
 	 * <p>
-	 * ***La première ListeMilieu (m_0) peut contenir toutes les valeurs qui sont plus petites que sont maxima.***
+	 * La première ListeMilieu (m_0) peut contenir toutes les valeurs qui sont plus petites que sont maxima.
 	 * <p>
 	 * La dernière ListeMilieu (m_i) peut contenir une valeur lorsque cette valeur est plus grande ou égale à son
 	 * minima.
@@ -158,21 +165,38 @@ public class ListeIndex<E extends Comparable<E>> {
 	 * Si l'ajout de l'élément dans la liste brise l'invariant (1) de la ListeIndex alors il faudra faire appel à la
 	 * méthode deviser de la ListeMilieu qui brise l'invariant. La nouvelle liste est ajoutée dans l'index.
 	 * <p>
-	 * ***S'il n'y a pas de ListeMilieu dans l'index, alors une nouvelle ListeMilieu est ajoutée et l'élément est placé
+	 * S'il n'y a pas de ListeMilieu dans l'index, alors une nouvelle ListeMilieu est ajoutée et l'élément est placé
 	 * dans cette liste.
 	 *
-	 * @param valeur
+	 * @param valeur La valeur à inserer dans la liste indexe
 	 */
 	public void inserer( E valeur ) {
+		if ( this.nbrListe() == 0 ) {
+			ListeMilieu<E> nouvelleListeMilieu = new ListeMilieu<>();
+			nouvelleListeMilieu.inserer( valeur );
+			// Nouveau début d'index (avec une valeur)
+			Noeud<ListeMilieu<E>> nouveauNoeudAvecValeur = new Noeud<>(nouvelleListeMilieu);
+			debutIndex = nouveauNoeudAvecValeur;
+			// Nouvelle fin d'index (null)
+			Noeud<ListeMilieu<E>> nouvelleFin = new Noeud<ListeMilieu<E>>();
+			finIndex = nouvelleFin;
+		}
+		if ( this.nbrListe() != 0 && finIndex.getValeur().maxima().compareTo( valeur ) >= 0
+				&& debutIndex.getValeur().minima().compareTo( valeur ) <= 0 ) {
+
+		}
 	}
 
 	/**
-	 * Trouve la ListeMilieu pouvant contenir la valeur (voire inserer plus haut -> commentaire dans l'énoncé) et
-	 * supprime la première occurrence de la valeur dans cette liste.
+	 * Trouve la ListeMilieu pouvant contenir la valeur et supprime la première occurrence de la valeur dans cette
+	 * liste.
 	 *
 	 * @param valeur La valeur à supprimer dans la liste indexe.
 	 */
 	public void supprimer( E valeur ) {
+		for ( int i = 0; i < this.nbrListe(); i++ ) {
+
+		}
 	}
 
 	/**
