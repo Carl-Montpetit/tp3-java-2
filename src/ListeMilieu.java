@@ -237,11 +237,16 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 		boolean present = false;
 		Noeud<E> courant = null;
 
-		if ( getPremierSup().getValeur().compareTo( chose ) <= 0 ) {
-			courant = superieur.premier();
-		} else {
+		if(getPremierSup() == null){
 			courant = inferieur.premier();
+		}else{
+			if ( getPremierSup().getValeur().compareTo( chose ) <= 0 ) {
+				courant = superieur.premier();
+			} else {
+				courant = inferieur.premier();
+			}
 		}
+
 		while ( courant != null && !present ) {
 			if ( courant.getValeur().compareTo( chose ) == 0 ) {
 				present = true;

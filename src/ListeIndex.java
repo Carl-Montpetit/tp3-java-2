@@ -75,12 +75,12 @@ public class ListeIndex<E extends Comparable<E>> {
 		if ( nbrListe() != 0 && finIndex.getValeur().maxima().compareTo( valeur ) >= 0
 				&& debutIndex.getValeur().minima().compareTo( valeur ) <= 0 ) {
 			while ( compteur < nbrListe() ) {
-				noeudListe = noeudListe.getSuivant();
-				if ( valeur.compareTo( noeudListe.getValeur().minima() ) < 0 && !trouveIndice ) {
+				if ( valeur.compareTo( noeudListe.getValeur().maxima() ) <= 0 && !trouveIndice ) {
 					indice = compteur;
 					trouveIndice = true;
 				}
 				compteur++;
+				noeudListe = noeudListe.getSuivant();
 			}
 			liste = get( indice );
 			estDedans = liste.estPresent( valeur );
@@ -210,7 +210,6 @@ public class ListeIndex<E extends Comparable<E>> {
 			}
 			noeud = noeud.getSuivant();
 		}
-		supprimerIndexVide();
 	}
 
 	/**
@@ -281,27 +280,6 @@ public class ListeIndex<E extends Comparable<E>> {
 		}
 	}
 
-	/**
-	 * Supprime une liste index vide si présente.
-	 */
-	public void supprimerIndexVide() {
-		Noeud<ListeMilieu<E>> noeud1 = debutIndex;
-		Noeud<ListeMilieu<E>> noeud2 = debutIndex.getSuivant();
-		int compteur = 0;
-
-		if ( this.debutIndex.getValeur() == null ) {
-			debutIndex = debutIndex.getSuivant();
-		}
-		while ( compteur < this.nbrListe() ) {
-			if ( noeud2 == finIndex && noeud2.getValeur() == null ) {
-				finIndex = noeud1;
-			}
-			if ( noeud2.getValeur() == null ) {
-				noeud1.setSuivant( noeud2.getSuivant() );
-			}
-			compteur++;
-		}
-	}
 
 	/*
 	 TOSTRING
