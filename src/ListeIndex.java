@@ -267,7 +267,7 @@ public class ListeIndex<E extends Comparable<E>> {
 			finIndex.setSuivant( division );
 			finIndex = division;
 		} else {
-			while ( suivant != null) {
+			while ( suivant != null ) {
 				if ( precedant.getValeur().taille() > 2 * this.nbrListe() ) {
 					listeDivision = precedant.getValeur().diviser();
 					division.setValeur( listeDivision );

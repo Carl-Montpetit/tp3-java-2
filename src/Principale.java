@@ -281,13 +281,13 @@ public class Principale {
 
 		 */
 		ListeIndex<Integer> index = new ListeIndex<>();
-		index.inserer( 3);
-		index.inserer( 5);
-		index.inserer( 11);
-		index.inserer( -1);
-		index.inserer( 12);
+		index.inserer( 3 );
+		index.inserer( 5 );
+		index.inserer( 11 );
+		index.inserer( -1 );
+		index.inserer( 12 );
 
-		System.out.println(index.contient(12));
-		System.out.println(index.contient(4));
+		System.out.println( index.contient( 12 ) );
+		System.out.println( index.contient( 4 ) );
 	}
 }

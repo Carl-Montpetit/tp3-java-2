@@ -49,19 +49,14 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 * @param valeur L'élément ajouté à la listeIndex.
 	 */
 	public void ajouterElementFin( T valeur ) {
-// on crée un nouvel élément de la liste
-// contenant le double <valeur>
 		Noeud<T> nouvelleFin = new Noeud<>( valeur );
 
 		if ( debut == null ) {
-//      C'est le tout premier élément de la liste
-//      -> La liste était initialement vide
 			debut = nouvelleFin;
 			fin = nouvelleFin;
 			courant = nouvelleFin;
 		} else {
-//      La liste contenait déjà des éléments initialement
-			fin.setSuivant( nouvelleFin );
+			this.fin.setSuivant( nouvelleFin );
 			fin = nouvelleFin;
 		}
 	}
@@ -74,14 +69,15 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 */
 	public T enlever() throws ListeVideException {
 		T sortie = null;
+
 		if ( !aCourant() ) {
 			throw new ListeVideException( "Liste vide." );
 		}
-		if ( nombreElementDansListeChainee() == 1 ) {
+		if ( this.nombreElementDansListeChainee() == 1 ) {
 			fin = null;
 		}
-		sortie = debut.getValeur();
-		debut = debut.getSuivant();
+		sortie = this.debut.getValeur();
+		debut = this.debut.getSuivant();
 		courant = debut;
 
 		return sortie;
@@ -98,11 +94,12 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		Noeud<T> apres = debut;
 		Noeud<T> precedent = null;
 		Noeud<T> ajout = new Noeud<>( valeur );
-		if ( !aCourant() || valeur.compareTo( fin.getValeur() ) > 0 ) {
-			ajouterElementFin( valeur );
-		} else if ( valeur.compareTo( debut.getValeur() ) < 0 ) {
+
+		if ( !aCourant() || valeur.compareTo( this.fin.getValeur() ) > 0 ) {
+			this.ajouterElementFin( valeur );
+		} else if ( valeur.compareTo( this.debut.getValeur() ) < 0 ) {
 			ajout.setSuivant( apres );
-			setDebut( ajout );
+			this.setDebut( ajout );
 		} else {
 			while ( !place ) {
 				if ( valeur.compareTo( apres.getValeur() ) < 0 ) {
@@ -131,6 +128,7 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 		Noeud<T> apres = debut;
 		Noeud<T> precedent = null;
 		Noeud<T> ajout = new Noeud<>( valeur );
+
 		if ( !aCourant() || valeur.compareTo( fin.getValeur() ) < 0 ) {
 			ajouterElementFin( valeur );
 		} else if ( valeur.compareTo( debut.getValeur() ) > 0 ) {
@@ -160,16 +158,17 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 */
 	public void supprimerElement( T valeur ) {
 		T test = null;
+
 		if ( aCourant() ) {
 			int element = nombreElementDansListeChainee();
 			while ( element != 0 ) {
 				try {
-					test = enlever();
+					test = this.enlever();
 				} catch ( ListeVideException e ) {
 					e.printStackTrace();
 				}
 				if ( valeur.compareTo( test ) != 0 ) {
-					ajouterElementFin( test );
+					this.ajouterElementFin( test );
 				}
 				element--;
 			}
@@ -192,7 +191,7 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 */
 	public T valeur() {
 		T valeur = null;
-		if ( aCourant() ) {
+		if ( this.aCourant() ) {
 			valeur = ( courant.getValeur() );
 		}
 		return valeur;
@@ -206,6 +205,7 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	public Noeud<T> premier() {
 		courant = debut;
 		Noeud<T> noeud = null;
+
 		if ( debut != null ) {
 			noeud = debut;
 		}
@@ -219,6 +219,7 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 */
 	public Noeud<T> suivant() {
 		Noeud<T> noeud = null;
+
 		if ( courant != null ) {
 			noeud = courant.getSuivant();
 		}
@@ -232,6 +233,7 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 */
 	public Noeud<T> dernier() {
 		Noeud<T> noeud = null;
+
 		if ( courant != null ) {
 			noeud = fin;
 		}
@@ -286,17 +288,17 @@ class ListeSimplementChainee<T extends Comparable<T>> {
 	 */
 	public void ajustementListes( ListeSimplementChainee<T> sup ) {
 		T element = null;
-		while ( nombreElementDansListeChainee() != sup.nombreElementDansListeChainee() + 1 &&
-				nombreElementDansListeChainee() != sup.nombreElementDansListeChainee() ) {
-			if ( nombreElementDansListeChainee() + 1 <= sup.nombreElementDansListeChainee() ) {
+		while ( this.nombreElementDansListeChainee() != sup.nombreElementDansListeChainee() + 1 &&
+				this.nombreElementDansListeChainee() != sup.nombreElementDansListeChainee() ) {
+			if ( this.nombreElementDansListeChainee() + 1 <= sup.nombreElementDansListeChainee() ) {
 				try {
 					element = sup.enlever();
 				} catch ( ListeVideException e ) {
 					e.printStackTrace();
 				}
-				ajouterElementDecroissant( element );
+				this.ajouterElementDecroissant( element );
 			}
-			if ( nombreElementDansListeChainee() >= sup.nombreElementDansListeChainee() + 2 ) {
+			if ( this.nombreElementDansListeChainee() >= sup.nombreElementDansListeChainee() + 2 ) {
 				try {
 					element = enlever();
 				} catch ( ListeVideException e ) {

@@ -75,11 +75,12 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 	public ListeMilieu<E> diviser() {
 		ListeMilieu<E> nouveau = new ListeMilieu<>();
 		E element = null;
-		if ( superieur.nombreElementDansListeChainee() != 0 ) {
-			int elementPresent = superieur.nombreElementDansListeChainee();
+
+		if ( this.superieur.nombreElementDansListeChainee() != 0 ) {
+			int elementPresent = this.superieur.nombreElementDansListeChainee();
 			while ( elementPresent != 0 ) {
 				try {
-					element = superieur.enlever();
+					element = this.superieur.enlever();
 				} catch ( ListeVideException e ) {
 					e.printStackTrace();
 				}
@@ -87,9 +88,9 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 				elementPresent--;
 			}
 		}
-		inferieur.ajustementListes( superieur );
+		this.inferieur.ajustementListes( superieur );
 
-		setPremiersElements( nouveau );
+		this.setPremiersElements( nouveau );
 		return nouveau;
 	}
 
@@ -105,17 +106,17 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 	 * @param valeur La valeur ajouté à la liste.
 	 */
 	public void inserer( E valeur ) {
-		if ( inferieur.nombreElementDansListeChainee() == 0 || valeur.compareTo( getPremierInf().getValeur() ) <= 0 ) {
-			inferieur.ajouterElementDecroissant( valeur );
+		if ( this.inferieur.nombreElementDansListeChainee() == 0 || valeur.compareTo( getPremierInf().getValeur() ) <= 0 ) {
+			this.inferieur.ajouterElementDecroissant( valeur );
 		} else {
-			superieur.ajouterElementCroissant( valeur );
+			this.superieur.ajouterElementCroissant( valeur );
 		}
-		inferieur.ajustementListes( superieur );
-		setPremierInf( new Noeud<E>( inferieur.premier().getValeur() ) );
-		if ( superieur.nombreElementDansListeChainee() != 0 ) {
-			setPremierSup( new Noeud<E>( superieur.premier().getValeur() ) );
+		this.inferieur.ajustementListes( superieur );
+		this.setPremierInf( new Noeud<E>( this.inferieur.premier().getValeur() ) );
+		if ( this.superieur.nombreElementDansListeChainee() != 0 ) {
+			this.setPremierSup( new Noeud<E>( this.superieur.premier().getValeur() ) );
 		} else {
-			setPremierSup( null );
+			this.setPremierSup( null );
 		}
 	}
 
@@ -128,7 +129,7 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 	 * @return milieu La valeur milieu de la liste.
 	 */
 	public E milieu() {
-		return getPremierInf().getValeur();
+		return this.getPremierInf().getValeur();
 	}
 
 	/**
@@ -140,7 +141,7 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 	 * @return minimum La valeur minimum de la liste.
 	 */
 	public E minima() {
-		return inferieur.dernier().getValeur();
+		return this.inferieur.dernier().getValeur();
 	}
 
 	/**
@@ -153,10 +154,10 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 	 */
 	public E maxima() {
 		E maximum;
-		if ( superieur.nombreElementDansListeChainee() == 0 ) {
-			maximum = getPremierInf().getValeur();
+		if ( this.superieur.nombreElementDansListeChainee() == 0 ) {
+			maximum = this.getPremierInf().getValeur();
 		} else {
-			maximum = superieur.dernier().getValeur();
+			maximum = this.superieur.dernier().getValeur();
 		}
 		return maximum;
 	}
@@ -167,22 +168,22 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 	 * @param valeur La valeur à supprimer de la liste milieu.
 	 */
 	public void supprimer( E valeur ) {
-		if ( inferieur.nombreElementDansListeChainee() != 0 ) {
-			if ( superieur.nombreElementDansListeChainee() == 0 || valeur.compareTo( getPremierInf().getValeur() ) <= 0 ) {
-				inferieur.supprimerElement( valeur );
+		if ( this.inferieur.nombreElementDansListeChainee() != 0 ) {
+			if ( this.superieur.nombreElementDansListeChainee() == 0 || valeur.compareTo( this.getPremierInf().getValeur() ) <= 0 ) {
+				this.inferieur.supprimerElement( valeur );
 			} else {
-				superieur.supprimerElement( valeur );
+				this.superieur.supprimerElement( valeur );
 			}
-			inferieur.ajustementListes( superieur );
-			if ( inferieur.nombreElementDansListeChainee() != 0 ) {
-				setPremierInf( new Noeud<E>( inferieur.premier().getValeur() ) );
+			this.inferieur.ajustementListes( superieur );
+			if ( this.inferieur.nombreElementDansListeChainee() != 0 ) {
+				this.setPremierInf( new Noeud<E>( this.inferieur.premier().getValeur() ) );
 			} else {
-				setPremierInf( null );
+				this.setPremierInf( null );
 			}
-			if ( superieur.nombreElementDansListeChainee() != 0 ) {
-				setPremierSup( new Noeud<E>( superieur.premier().getValeur() ) );
+			if ( this.superieur.nombreElementDansListeChainee() != 0 ) {
+				this.setPremierSup( new Noeud<E>( this.superieur.premier().getValeur() ) );
 			} else {
-				setPremierSup( null );
+				this.setPremierSup( null );
 			}
 		}
 	}
@@ -196,7 +197,7 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 	 * @return nombre Le nombre de valeurs dans la liste milieu.
 	 */
 	public int taille() {
-		return superieur.nombreElementDansListeChainee() + inferieur.nombreElementDansListeChainee();
+		return this.superieur.nombreElementDansListeChainee() + this.inferieur.nombreElementDansListeChainee();
 	}
 
 	/**
@@ -205,15 +206,15 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 	 * @param nouvelle : La nouvelle ListeMilieu.
 	 */
 	public void setPremiersElements( ListeMilieu<E> nouvelle ) {
-		if ( inferieur.nombreElementDansListeChainee() != 0 ) {
-			setPremierInf( new Noeud<E>( inferieur.premier().getValeur() ) );
+		if ( this.inferieur.nombreElementDansListeChainee() != 0 ) {
+			setPremierInf( new Noeud<E>( this.inferieur.premier().getValeur() ) );
 		} else {
-			setPremierInf( null );
+			this.setPremierInf( null );
 		}
-		if ( superieur.nombreElementDansListeChainee() != 0 ) {
-			setPremierSup( new Noeud<E>( superieur.premier().getValeur() ) );
+		if ( this.superieur.nombreElementDansListeChainee() != 0 ) {
+			this.setPremierSup( new Noeud<E>( superieur.premier().getValeur() ) );
 		} else {
-			setPremierSup( null );
+			this.setPremierSup( null );
 		}
 		if ( nouvelle.inferieur.nombreElementDansListeChainee() != 0 ) {
 			nouvelle.setPremierInf( new Noeud<E>( nouvelle.inferieur.premier().getValeur() ) );
@@ -237,13 +238,13 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 		boolean present = false;
 		Noeud<E> courant = null;
 
-		if(getPremierSup() == null){
-			courant = inferieur.premier();
-		}else{
-			if ( getPremierSup().getValeur().compareTo( chose ) <= 0 ) {
-				courant = superieur.premier();
+		if ( this.getPremierSup() == null ) {
+			courant = this.inferieur.premier();
+		} else {
+			if ( this.getPremierSup().getValeur().compareTo( chose ) <= 0 ) {
+				courant = this.superieur.premier();
 			} else {
-				courant = inferieur.premier();
+				courant = this.inferieur.premier();
 			}
 		}
 
@@ -277,9 +278,9 @@ public class ListeMilieu<E extends Comparable<E>> implements Comparable<ListeMil
 	public int compareTo( ListeMilieu<E> o ) {
 		int x;
 
-		if ( minima().compareTo( o.minima() ) == 0 ) {
+		if ( this.minima().compareTo( o.minima() ) == 0 ) {
 			x = 0;
-		} else if ( minima().compareTo( o.minima() ) > 0 ) {
+		} else if ( this.minima().compareTo( o.minima() ) > 0 ) {
 			x = 1;
 		} else {
 			x = -1;
