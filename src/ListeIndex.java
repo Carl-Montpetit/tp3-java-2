@@ -198,7 +198,19 @@ public class ListeIndex<E extends Comparable<E>> {
 	 * @param valeur La valeur à supprimer dans la liste indexe.
 	 */
 	public void supprimer( E valeur ) {
+		Noeud<ListeMilieu<E>> noeud = debutIndex;
+		ListeMilieu<E> liste = null;
 
+		while ( noeud != null ) {
+			if ( noeud.getValeur().minima().compareTo( valeur ) <= 0
+					&& noeud.getValeur().maxima().compareTo( valeur ) >= 0 ) {
+				liste = noeud.getValeur();
+				liste.supprimer( valeur );
+				noeud.setValeur( liste );
+			}
+			noeud = noeud.getSuivant();
+		}
+		supprimerIndexVide();
 	}
 
 	/**
@@ -266,6 +278,28 @@ public class ListeIndex<E extends Comparable<E>> {
 				precedant = suivant;
 				suivant = suivant.getSuivant();
 			}
+		}
+	}
+
+	/**
+	 * Supprime une liste index vide si présente.
+	 */
+	public void supprimerIndexVide() {
+		Noeud<ListeMilieu<E>> noeud1 = debutIndex;
+		Noeud<ListeMilieu<E>> noeud2 = debutIndex.getSuivant();
+		int compteur = 0;
+
+		if ( this.debutIndex.getValeur() == null ) {
+			debutIndex = debutIndex.getSuivant();
+		}
+		while ( compteur < this.nbrListe() ) {
+			if ( noeud2 == finIndex && noeud2.getValeur() == null ) {
+				finIndex = noeud1;
+			}
+			if ( noeud2.getValeur() == null ) {
+				noeud1.setSuivant( noeud2.getSuivant() );
+			}
+			compteur++;
 		}
 	}
 

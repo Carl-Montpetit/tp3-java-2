@@ -286,6 +286,10 @@ public class Principale {
 		index.inserer( 11);
 		index.inserer( -1);
 		index.inserer( 12);
+
+		index.supprimer( 5 );
+		index.supprimer( 3 );
+		index.supprimer( -1 );
 		System.out.println(index.toString());
 	}
 }

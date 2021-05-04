@@ -908,21 +908,21 @@ class ListeIndexTest {
 	// Pour le meme nombre de valeur, la listeMilieu seule a demandé 12.510 secondes.
 	// avons-nous un temps O(sqrt(n)) ?
 
-	@Test
-	void charge() {
-		final long NOMBRE_CHOIX = 100_003;
-		final int MINIMA = -5_000_000;
-		final int MAXIMA = 5_000_000;
-		final int TAILLE_INTERVALE = MAXIMA - MINIMA;
-
-		ListeIndex< Integer > a = new ListeIndex<>();
-
-		Random r = new Random();
-		for( int j = 0; j < NOMBRE_CHOIX; ++ j ){
-			a.inserer( r.nextInt( TAILLE_INTERVALE ) + MINIMA );
-		}
-
-		assertTrue( a.taille() <= NOMBRE_CHOIX );
+//	@Test
+//	void charge() {
+//		final long NOMBRE_CHOIX = 100_003;
+//		final int MINIMA = -5_000_000;
+//		final int MAXIMA = 5_000_000;
+//		final int TAILLE_INTERVALE = MAXIMA - MINIMA;
+//
+//		ListeIndex< Integer > a = new ListeIndex<>();
+//
+//		Random r = new Random();
+//		for( int j = 0; j < NOMBRE_CHOIX; ++ j ){
+//			a.inserer( r.nextInt( TAILLE_INTERVALE ) + MINIMA );
+//		}
+//
+//		assertTrue( a.taille() <= NOMBRE_CHOIX );
 
 		// Quelques statisque.
 		// Enlevez les commentaires pour les exécuter.
@@ -956,5 +956,5 @@ class ListeIndexTest {
         System.out.println( "taille moyenne des intervales : " + ( sommeTailleIntervalle / nbrListe ) );
         System.out.println( "(intervale de valeur) div (nbrListe) : " + ( ((double)( MAXIMA - MINIMA ) ) / nbrListe ) );
         */
-	}
+//	}
 }
